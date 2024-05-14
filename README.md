@@ -4,37 +4,47 @@
 Your PassPour Awaits! 
 Sip, Track, Explore: PassPour Your Whiskey Journey!
 
-We have created a web application that is your personal assistant tracker for your Whiskey Collection and a Collection of the User's thoughts on each one. We wanted to provide an easy and streight-forward way in keeping track of all of the complex natures that the world's crafters can brew into a single bottle. 
+Welcome to PassPour: your personal assistant for tracking your Whiskey Collection and capturing your thoughts on each bottle. We've designed this web application to offer you a simple and intuitive way to manage the myriad complexities that crafters worldwide imbue into every bottle.
 
-PassPour can help you record your collection of bottles all in one place. Keeping your personal entries of your personal experiences with your bottle unique to you.
+PassPour serves as your centralized hub for cataloging your collection, allowing you to document your unique experiences with each bottle in detail. Whether it's a rare find or a cherished favorite, your personal entries are tailored to reflect your individual journey.
 
-You can connect with people and share your recipies and opions on what makes the best whiskey - the best!
+Connect with fellow enthusiasts to share recipes and opinions, delving into what defines the pinnacle of whiskey excellence.
 
-With a centralized location accessable anywhere on the web with an account - is your Bucket List there to keep track just about any lead you come accross. From overhearing a friendly local talking about a beautiful bottle to an article in the Whiskey Avocate Magazine, we want to store each lead you find that could bring you to on an adventure to find the most exquisit taste.
+Accessible from anywhere with an internet connection and an account, PassPour becomes your go-to Bucket List for cataloging every lead, from casual conversations with locals to articles in esteemed publications like Whiskey Advocate Magazine. Every discovery, every hint of a remarkable taste, finds its place within PassPour, guiding you on a quest for the most exquisite flavors.
 
-Please take a look at our prototype at the bottom of this README and all feedback is welcome!
-
-
+We invite you to explore our prototype below and welcome any feedback you may have!
 
 
 ## Group Project - Acceptance Criteria:
 
- - As a group, you will decide on an MVP (Minimal Viable Product) and clear it with the instructors before starting. 
+ - As a group, you will decide on an MVP (Minimal Viable Product) Instructor Approval is Optional. 
 
-- The application uses semantically correct HTML and has at minimum 2 HTML pages.
+ - Use a Kanban Board to Track what Tasks everyone is working on.
+    - GitHub Projects (Kanban Board): [Click here: PassPour](https://github.com/users/Kylebutcher/projects/1/views/1)
 
-- The application needs to use a type of CSS Framework, otherwise if a Framework is not selected, the application requires custom CSS.
+- The application uses semantically correct HTML and has at least 1 page generated from the server via Handlebars.
 
-- The applicaiton needs to use JaveScript for various logic perameters.
+- The application uses Bootstrap or another CSS Library, along with custom CSS.
+  - The site must have a responisve design.
 
-   - Must have at least 1 From
+- The applicaiton needs to use Vanilla JaveScript or JQuery for client-side code.
 
+- The application must use NPM: Express with a MVC file structure.
 
-- The application must use LocalSorage for some data.
+- The applicaiton must use Postgres & Sequelize. 
 
-- The applicaiton must use at least one API database. 
+- The application must have a minimum of 3 data tables and Users should be able to perform a GET and POST function on the models. 
 
-- The application must use one new technology or library.
+- The User Table should include a field for a hashed password.
+
+- The application should have 1 or more pages that are restricted only to logged-in users.
+
+- The application should have a signup & login form.
+
+- The application must use 1 new technology, library, ect. It can be any of the following:
+  - Third-Party JavaScript Library
+  - Node Package
+  - External API
 
 - All code presented must be clean and well organized.
 
@@ -46,13 +56,11 @@ Please take a look at our prototype at the bottom of this README and all feedbac
    - Project description
    - Team Member List
    - Screen Shots &/or Gifs of the Deployed Pages
-   - Link to deployed version on Github Pages
+   - Link to deployed version on Render
 
 ## Media Attachments
 
-Below is a screen shot of the Home Page (Desktop & Mobile), Results Page, & Gallery.
-![Below is a screen shot of the Home Page (Desktop & Mobile), Results Page, & Gallery.](file-name)
-![](file-name)
+Below is a mock up of our application.
 
 The Landing Page.
 ![The Landing Page.](file-name)
@@ -101,7 +109,7 @@ The Presentation.
 
 <br>
 
-- Misc Software
+- Misc Software:
    - Windows Mark Up
    - Excalidraw.com
    - Colors.co

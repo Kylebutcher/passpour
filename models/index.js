@@ -5,8 +5,7 @@ const Bottle = reqire('./Bottle');
 
 
 // Creates a relationship between User, Bottle, and Accolade model, with the User having a "has many" relationship with other models.
-User.hasMany(Project, Bottle, Accolade, {
-  foreignKey: 'user_id',
+User.hasMany(Bottle, Accolade, {
   foreignKey: 'bottle_id',
   foreignKey: 'accolade_id',
   onDelete: 'CASCADE'
