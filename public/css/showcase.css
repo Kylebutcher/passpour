@@ -15,19 +15,19 @@
   border: 3px solid green;
   display: flex;
   padding-top: 10px;
-  flex-direction: row;
-  text-decoration: none;
-  justify-content: right;
+  flex-direction: row; 
+  text-decoration: none; 
+  justify-content: right; 
   text-align: end;
-};
-
+}; 
 
 .container_2{
-  height:50px;
-  width:50px;
+  border: solid 3px red;
+  /* height:50px;
+  width:50px; */
 };
 
-img{
-  height: 50px;
-  width: 50px;
-};
+.image1 {
+  height: 50%;
+  width: 50%;
+}
