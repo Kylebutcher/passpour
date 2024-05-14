@@ -1,18 +1,21 @@
 body{
-    background-color: #5b5d52;
+    background-color: #Abaca7;
+}
+h1{
+    color:#D07725;
 }
 .container_1{ 
     width: 49.9%; 
     float: left; 
     padding: 40px; 
-    border:2px solid black;
+    border:2px solid #451e05;
     box-sizing: border-box;  
 }
 .container_2{ 
     width: 49.9%; 
     float: right; 
     padding: 126px; 
-    border:2px solid black;
+    border:2px solid #451e05;
     box-sizing: border-box;  
 }
 form {
@@ -51,7 +54,7 @@ label{
 
 #submitButton{
   padding: 5px 10px;
-  background-color: #F0ba34;
+  background-color: #D07725;
   color: #fff;
   border: none;
   border-radius: 5px;
