@@ -1,20 +1,29 @@
 const sequelize = require('../config/connection');
-const { User, Project } = require('../models');
+const { User, Accolade, Bottle } = require('../models');
 
-const userData = require('./userData.json');
-const projectData = require('./projectData.json');
+const userData = require('./user-data.json');
+const accoladeData = require('./accolade-data.json');
+const bottleData = require('./bottle-data.json')
 
 const seedDatabase = async () => {
-  await sequelize.sync({ force: true });
+  await sequelize.sync({ force: false });
 
   const users = await User.bulkCreate(userData, {
     individualHooks: true,
     returning: true,
   });
 
-  for (const project of projectData) {
-    await Project.create({
-      ...project,
+  // I am not sure why the variable 'accolade' and 'bottle' (line 24) are not active, I set it up simalar to how our MVC Gary project was. 
+  for (const accolade of accoladeData) {
+    await Accolade.create({
+      ...Accolade,
+      user_id: users[Math.floor(Math.random() * users.length)].id,
+    });
+  }
+
+  for (const bottle of bottleData) {
+    await Bottle.create({
+      ...Bottle,
       user_id: users[Math.floor(Math.random() * users.length)].id,
     });
   }
