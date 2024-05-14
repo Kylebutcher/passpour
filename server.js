@@ -1,48 +1,44 @@
 const express = require('express');
-const path = require('path');
-const app = express();
-const exphbs = require('express-handlebars');
 const session = require('express-session');
+const exphbs = require('express-handlebars')
+const routes = require('./controllers');
+const helpers = require('./utils/helpers')
+
+const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
+const app = express();
 const PORT = process.env.PORT || 3001;
 
-const routes = require('./controllers');
+/* Your cookie-handling settings should be inserted in the cookie object below */
+const sess = {
+  secret: 'Super secret secret',
+  cookie: {
+    maxAge: 60 * 60 * 1000,
+    httpOnly: true,
+    secure: false,
+    sameSite:'strict',
+  },
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+};
 
+app.use(session(sess));
 
-const sequelize = require('./config/connections');
-const helpers = require('./utils/helpers');
+const hbs = exphbs.create({ helpers });
 
-// app.use(express.static(path.join(__dirname, 'public')));
-// app.use(require('./controllers/api/routes'));
-
-const apiRoutes = require("./controllers")
-
-
-/**
- * Socket.io requires its own server so we use a small server package 
- * called http, which is built into Express.
- */
-const http = require('http');
-const socketIo = require('socket.io');
-const server = http.createServer(app);
-const io = socketIo(server);
-const chatRoutes = require('./controllers/chat/index')(io);
-const mount = require("./services/socketio")
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
 
-app.use("/api/chat", chatRoutes)
-app.use('/', apiRoutes);
+app.use(routes);
 
-/**
- * This calls a function in services/socketio.js that basically
- * boots up the socket functionality
- */
-mount(io);
-
-
-server.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log('Now listening'));
 });
+
