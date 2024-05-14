@@ -1,19 +1,23 @@
 a{
   text-decoration: none;
-  margin-top: 5px;
+  font-size: larger;
+  color: #ffffff;
 }
+
 header{
   background-color: #451e05;
   padding: 10px;
+  border-radius: 5px;
 }
 
 nav{
-  background-color: #fcf77a;
   float: right;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  width: 30%;
+  justify-content: space-between;
   padding: 5px;
-  align-items: space-between;
+  margin: 3px;
 }
 
 #logo{
@@ -23,6 +27,5 @@ nav{
 
 body{
   background-image: url(../../assets/img/josephine-bredehoft-KsAo8ouBn8A-unsplash.jpg);
-  background-color: brown;
   color: #ffffff;
 }
