@@ -1,3 +1,6 @@
+// Entire Page needs review
+// Old variables are in there as: Project
+
 const router = require('express').Router();
 const { Accolade, Bottle, User } = require('../models');
 const withAuth = require('../utils/auth');
@@ -8,29 +11,37 @@ const withAuth = require('../utils/auth');
 // 
 router.get('/', async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
-    const projectData = await Project.findAll({
+    // Get all Accolades and JOIN with User data
+    const accoladeData = await Accolade.findAll({
       include: [
         {
-          model: User,
-          attributes: ['name'],
+          model: Accolade,
+          attributes: ['badge'],
         },
       ],
     });
 
-    // TODO: Serialize the project data so the template can read it
-    const projects = projectData.map((project) =>
-      project.get({ plain: true })
-    );
+    // Get all Bottles and JOIN with User data
+    // Do I hav to make a if statement in the Public JS folder for this to be IF THE USER HAS IT IN THIER COLLECTION? 
+    const bottleData = await Bottle.findAll({
+      include: [
+        {
+          model: Bottle,
+          attributes: ['whiskey_type'],
+        },
+      ],
+    });
 
-    //TO DO: Pass in a value called logged_in which references the session value of the same name
+
     res.render('homepage', { 
-      projects, 
-      logged_in: req.session.logged_in, //
+      accolades, // The Showcase
+      // I think we should add the bucket list objects and the table of pours object, but I dont know how to do that here / if we need to do it here or somewhere else
+       
+      logged_in: req.session.logged_in,
 
     });
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json({ msg: "Please log in to view this page."});
   }
 });
 
