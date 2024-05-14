@@ -14,6 +14,13 @@ Accessible from anywhere with an internet connection and an account, PassPour be
 
 We invite you to explore our prototype below and welcome any feedback you may have!
 
+## User Stories:
+- As a Collector, I want to be able to record and document my collection accessable from anywhere.
+- As a Food Critique, I want to be able to review and record even the most delicate notes that Whiskey has to offer.
+- As an Event Organizer, I want to be able to select the best type of whiskey for the guests as well as display all of the Whiskey we can provide.
+- As a Connoisseur I want to have a bucket list of all of the bottles I want to try.
+- As an Entrepreneur, I like showing off to my friends of a new bottle I have aquired.
+
 
 ## Group Project - Acceptance Criteria:
 
@@ -58,7 +65,7 @@ We invite you to explore our prototype below and welcome any feedback you may ha
    - Screen Shots &/or Gifs of the Deployed Pages
    - Link to deployed version on Render
 
-## Media Attachments
+## The Mock Up:
 
 Below is a mock up of our application.
 
