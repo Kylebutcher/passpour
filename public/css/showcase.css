@@ -1,4 +1,58 @@
 
+/* Color Scheme */
+:root {
+  --background-brown: #451E05;
+  --whiskey-orange: #FF8D26;
+  --sky-blue: #31C5FF;
+  --glass-grey: #D5DBE9;
+}
+
+
+body {
+  background-image: url(../../assets/img/dipslaycase-unsplash.png);
+  background-attachment: scroll;
+  background-size: cover;
+  background-position: center;
+  height: 280vh;
+}
+
+
+h1 {
+  color: var(--whiskey-orange);
+}
+
+
+/* The 18 display boxes */
+.cubby-1 {
+  border: 10px solid --sky-blue;
+}
+
+.cubby-2
+.cubby-3
+.cubby-4
+
+.cubby-5
+.cubby-6
+.cubby-7
+.cubby-8
+
+.cubby-9
+.cubby-10
+.cubby-11
+.cubby-12
+
+.cubby-13
+.cubby-14
+.cubby-15
+.cubby-16
+
+.cubby-17
+.cubby-18
+
+
+
+
+
 
 .container{
   /* border: 3px solid red; */
