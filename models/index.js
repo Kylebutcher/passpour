@@ -1,29 +1,48 @@
 const User = require('./User');
 const Accolade = require('./Accolade');
-const Bottle = reqire('./Bottle');
+const Bottle = require('./Bottle');
+const UserAccolade = require('./UserAccolade')
+const FavoriteBottle = require('./FavoriteBottle')
 
 
+// Creates a relationship between User and Accolade model, with a "belongs to many" relationship of the Accolade to the User.
 
-// Creates a relationship between User, Bottle, and Accolade model, with the User having a "has many" relationship with other models.
-User.hasMany(Bottle, Accolade, {
-  foreignKey: 'bottle_id',
-  foreignKey: 'accolade_id',
-  onDelete: 'CASCADE'
+User.belongsToMany(Accolade, {
+  through: {
+    model: UserAccolade
+  },
+  as: 'user_accolade'
 });
 
-
-
-// Creates a relationship between User and Accolade model, with a "belongs to" relationship of the Accolade to the User.
-Accolade.belongsTo(User, {
-  foreignKey: 'user_id'
+Accolade.belongsToMany(User, {
+  through: {
+    model: UserAccolade
+  },
+  as: 'accolade_user'
 });
 
+User.belongsToMany(Bottle, {
+  through: {
+    model: FavoriteBottle,
+    foreignKey: 'user_id'
+  },
+  as: 'user_bottle'
+});
 
+Bottle.belongsToMany(User, {
+  through: {
+    model: FavoriteBottle,
+    foreignKey: 'bottle_id'
+  },
+  as: 'bottle_user'
+});
 
-// Creates a relationship between User and Accolade model, with a "belongs to" relationship of the Accolade to the User.
 Bottle.belongsTo(User, {
-  foreignKey: 'user_id'
+  foreignKey: 'author'
 });
 
+User.hasMany(Bottle, {
+  foreignKey: 'author'
+})
 
-module.exports = { User, Accolade, Bottle };
+module.exports = { User, Accolade, Bottle,UserAccolade, FavoriteBottle };

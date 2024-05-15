@@ -2,9 +2,9 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // Create Accolade model and datatypes, including the user_id foreign key.
-class Accolade extends Model {}
+class FavoriteBottle extends Model {}
 
-Accolade.init(
+FavoriteBottle.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -12,28 +12,38 @@ Accolade.init(
       primaryKey: true,
       autoIncrement: true,
     },
-
-    category: {
+    taste_notes: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-
-    badge: {
+    order: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-
-    description: {
-      type: DataTypes.STRING,
-    }
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id'
+      },
+      allowNull: false,
+    },
+    bottle_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'bottle',
+        key: 'id'
+      },
+      allowNull: false,
+    },
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'accolade',
+    modelName: 'favoritebottle',
   }
 );
 
-module.exports = Accolade;
+module.exports = FavoriteBottle;

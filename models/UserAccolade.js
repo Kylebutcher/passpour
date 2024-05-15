@@ -2,9 +2,9 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // Create Accolade model and datatypes, including the user_id foreign key.
-class Accolade extends Model {}
+class UserAccolade extends Model {}
 
-Accolade.init(
+UserAccolade.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -13,27 +13,30 @@ Accolade.init(
       autoIncrement: true,
     },
 
-    category: {
-      type: DataTypes.STRING,
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id'
+      },
       allowNull: false,
     },
-
-    badge: {
-      type: DataTypes.STRING,
+    accolade_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'accolade',
+        key: 'id'
+      },
       allowNull: false,
     },
-
-    description: {
-      type: DataTypes.STRING,
-    }
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'accolade',
+    modelName: 'useraccolade',
   }
 );
 
-module.exports = Accolade;
+module.exports = UserAccolade;
