@@ -1,3 +1,4 @@
+// Dependencies
 const express = require('express');
 const path = require("path")
 const session = require('express-session');
@@ -8,6 +9,7 @@ const helpers = require('./utils/helpers')
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
+// Sets up Express App
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -70,6 +72,8 @@ app.use(session(sess));
 
 const hbs = exphbs.create({ helpers });
 
+
+// Set Handlebars as the default template engine.
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
@@ -87,8 +91,6 @@ app.use(express.urlencoded({ extended: true }));
 // all page and api routes go through here
 app.use(routes);
 
-
-// app.listen(PORT, () => console.log('Now listening'));
 
 sequelize.sync({ force: false }).then(() => {
   server.listen(PORT, () => console.log('Now listening'));

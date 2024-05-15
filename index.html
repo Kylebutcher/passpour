@@ -18,22 +18,29 @@
 
         <form id="signUp">
             <label>First Name:</label>
-            <input type="text" id="firstName" placeholder="Enter username">
+            <input type="text" id="firstName" placeholder="FirstName">
 
             <label>Last Name:</label>
-            <input type="text" id="LastName" placeholder="Enter title">
+            <input type="text" id="LastName" placeholder="LastName">
 
             <label>Email:</label>
-            <input type="text" id="email" placeholder="Enter content"></textarea>
+            <input type="text" id="email" placeholder="Email"></textarea>
 
             <label>Password:</label>
-            <input type="text" id="password" placeholder="Enter content"></textarea>
+            <input type="text" id="password" placeholder="Enter Password"></textarea>
 
-            <label>Gender:</label>
-            <input type="text" id="gender" placeholder="Enter content"></textarea>
+            <label >Gender:</label>
+            <select id="gender" name="gender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
 
             <label>Region:</label>
-            <input type="text" id="region" placeholder="Enter content"></textarea>
+            <!-- <select id="country" name="country">
+               Options will be dynamically added here 
+            </select> -->
+            <input type="text" id="region" placeholder="Enter Country"></textarea>
 
             <button type="submit" id="submitButton">Sign Up</button>
 
