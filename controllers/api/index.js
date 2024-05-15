@@ -1,4 +1,5 @@
 
+
 const router = require('express').Router();
 const users = require('./userRoutes');
 const accolades = require('./accoladeRoutes');
@@ -13,5 +14,6 @@ router.use('/bottles', bottles);
 
 //Socket Testing
 router.use('/test', testRoutes)
+
 
 module.exports = router;
