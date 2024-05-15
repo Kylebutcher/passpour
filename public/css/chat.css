@@ -1,0 +1,26 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+#chat-area #messages {
+  list-style-type: none;
+  padding: 0;
+}
+
+#chat-area #messages li {
+  padding: 8px;
+  margin-bottom: 10px;
+  background: #f4f4f4;
+  border-radius: 4px;
+}
+
+#chat-area #messageInput {
+  padding: 10px;
+  width: 80%;
+  margin-right: 10px;
+}
+
+#chat-area #sendButton,
+#chat-area #apiButton {
+  padding: 10px;
+}
