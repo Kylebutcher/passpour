@@ -4,7 +4,7 @@ const router = require('express').Router();
 const users = require('./userRoutes');
 const accolades = require('./accoladeRoutes');
 const bottles = require('./bottleRoutes');
-const testRoutes = require("./test.controller")
+const testRoutes = require("./test.controller");
 
 
 //Database / Models
