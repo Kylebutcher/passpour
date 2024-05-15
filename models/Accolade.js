@@ -25,24 +25,7 @@ Accolade.init(
 
     description: {
       type: DataTypes.STRING,
-    },
-
-   // Referencing Keys
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id',
-      },
-    },
-
-    bottle_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'bottle',
-        key: 'id',
-      },
-    },
+    }
   },
   {
     sequelize,

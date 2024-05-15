@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chat App</title>
+  <style>
+    body { font-family: Arial, sans-serif; }
+    #messages { list-style-type: none; padding: 0; }
+    #messages li { padding: 8px; margin-bottom: 10px; background: #f4f4f4; border-radius: 4px; }
+    #messageInput { padding: 10px; width: 80%; margin-right: 10px; }
+    #sendButton, #apiButton { padding: 10px; }
+  </style>
+</head>
+<body>
+  <ul id="messages"></ul>
+  <input id="messageInput" autocomplete="off" placeholder="Type a message..." /><button id="sendButton">Send</button>
+  <button id="apiButton">Fetch API Message</button>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="assets/js/sockets.js"></script>
+</body>
+</html>

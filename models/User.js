@@ -45,26 +45,11 @@ User.init(
       },
     },
 
-    // I imagined a drop down menue in the form, (about 20 or so countries?) and i dont know how to do the "drop down version" of that into here: I think I would have to choose the 20 or so countries and list them here, have an array built so it can select the correct one. 
-
-    // potential path: grab the value from the form - and have that choice set to a string and can call it into regiaon: just like email or pass word
     region: {
       type: DataTypes.STRING,
-      get: function() {
-        return JSON.parse(this.getDataValue('myArrayField'));
-      }, 
-      set: function(val) {
-          return this.setDataValue('myArrayField', JSON.stringify(val));
-      },
       allowNull: false,
     },
   },
-
-      
-      
-
-
-
 
   {
     // Hooks are used so that if a user is created or updated, the password is encrypted before being stored in the database.
