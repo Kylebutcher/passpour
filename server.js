@@ -13,11 +13,17 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+
 /* socket io stuff */
+
 const http = require('http');
 const socketIo = require('socket.io');
 const server = http.createServer(app);
 const io = socketIo(server);
+
+const chatRoutes = require('./controllers/chat/index')(io);
+const mount = require("./services/socketio")
+
 // const chatRoutes = require('./controllers/chat/index')(io);
 
 
@@ -52,6 +58,7 @@ app.post('/api/chat/message', (req, res) => {
   res.status(201).json({ status: 'Message broadcasted via Socket.IO', message });
 });
 
+
 /* Your cookie-handling settings should be inserted in the cookie object below */
 const sess = {
   secret: 'Super secret secret',
@@ -80,6 +87,10 @@ app.set('view engine', 'handlebars');
 app.use(express.static('public'))
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
+
+app.use("/api/chat", chatRoutes)
+app.use('/', routes);
 
 
 // app.get('/chat', (req, res) => {
@@ -96,3 +107,8 @@ sequelize.sync({ force: false }).then(() => {
   server.listen(PORT, () => console.log('Now listening'));
 });
 
+/**
+ * This calls a function in services/socketio.js that basically
+ * boots up the socket functionality
+ */
+mount(io);

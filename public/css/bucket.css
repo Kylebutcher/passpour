@@ -1,7 +1,16 @@
+:root{
+  background-image: url(../../assets/img/josephine-bredehoft-KsAo8ouBn8A-unsplash.jpg);
+  font-family:Arial, Helvetica, sans-serif
+}
+
 a{
   text-decoration: none;
   font-size: larger;
   color: #ffffff;
+  margin: 3px;
+  padding: 3px;
+  background-color: #31c5ff;
+  border-radius: 5px;
 }
 
 header{
@@ -26,6 +35,50 @@ nav{
 }
 
 body{
-  background-image: url(../../assets/img/josephine-bredehoft-KsAo8ouBn8A-unsplash.jpg);
   color: #ffffff;
+}
+
+form{
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+#submit{
+  max-width: 80px;
+  background-color: #31c5ff;
+  color: #ffffff;
+  border: none;
+  padding: 3px;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+input, textarea{
+  padding: 5px;
+  margin: .5rem;
+  border-radius: 5px;
+}
+
+footer{
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: end;
+    justify-content: space-between;
+  }
+  header{
+    font-size: smaller;
+  }
+  #logo{
+    min-width: 25%;
+    min-height: 25%;
+  }
+  form{
+    max-width: 75%;
+  }
 }
