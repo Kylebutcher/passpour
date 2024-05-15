@@ -50,7 +50,7 @@ Bottle.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Bottle',
+    modelName: 'bottle',
   }
 );
 

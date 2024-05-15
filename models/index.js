@@ -1,17 +1,19 @@
 const User = require('./User');
 const Accolade = require('./Accolade');
-const Bottle = reqire('./Bottle');
+const Bottle = require('./Bottle');
 
 
 
 // Creates a relationship between User, Bottle, and Accolade model, with the User having a "has many" relationship with other models.
-User.hasMany(Bottle, Accolade, {
-  foreignKey: 'bottle_id',
-  foreignKey: 'accolade_id',
+User.hasMany(Bottle, {
+  foreignKey: 'user_id',
   onDelete: 'CASCADE'
 });
 
-
+User.hasMany(Accolade, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE'
+});
 
 // Creates a relationship between User and Accolade model, with a "belongs to" relationship of the Accolade to the User.
 Accolade.belongsTo(User, {

@@ -4,6 +4,7 @@ const router = require("express").Router()
 module.exports = (io) => {
 
   router.post('/message', (req, res) => {
+    console.log("HERE")
     const { message } = req.body;
     // Broadcast the message via Socket.IO
     io.emit('chat message', message);

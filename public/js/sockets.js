@@ -10,6 +10,7 @@ const socket = io();
 
   // Listen for 'chat message' events and add to messages list
   socket.on('chat message', function(msg) {
+    console.log("found!")
     const li = document.createElement('li');
     li.textContent = msg;
     messages.appendChild(li);
@@ -17,9 +18,11 @@ const socket = io();
   });
 
   // Send message on button click
-  sendButton.addEventListener('click', function() {
+  sendButton.addEventListener('click', function(e) {
+    const sender = e.target.getAttribute("data-sender")
+    const messageToSend = `${sender} says: ${messageInput.value}`
     if (messageInput.value) {
-      socket.emit('chat message', messageInput.value);
+      socket.emit('chat message', messageToSend);
       messageInput.value = '';
     }
   });
