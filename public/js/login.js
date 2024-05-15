@@ -7,7 +7,26 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Dummy database (replace this with your actual database)
+// const countries = [
+//     "Afghanistan", "Albania", "Algeria", /* Add more countries here */ 
+//   ];
+
+//   // Function to populate the dropdown with countries
+//   function populateCountries() {
+//     const select = document.getElementById("country");
+//     countries.forEach(country => {
+//       const option = document.createElement("option");
+//       option.text = country;
+//       option.value = country;
+//       select.appendChild(option);
+//     });
+//   }
+
+//   // Populate the dropdown when the page loads
+//   window.onload = populateCountries;
+
+
+// Dummy database (replace this with actual database)
 const users = [];
 
 // Encryption/Decryption key (in real-world scenarios, securely manage keys)
@@ -87,3 +106,4 @@ app.post('/login', async (req, res) => {
 app.listen(3001, () => {
     console.log('Server is running on port 3001');
 });
+
