@@ -1,37 +1,87 @@
-/* styling of the header */
 
-.nav-container{
-  /* border: solid 3px red; */
+/* Color Scheme */
+:root {
+  --background-brown: #451E05;
+  --whiskey-orange: #FF8D26;
+  --sky-blue: #31C5FF;
+  --glass-grey: #D5DBE9;
+}
+
+
+body {
+  background-image: url(../../assets/img/dipslaycase-unsplash.png);
+  background-attachment: scroll;
+  background-size: cover;
+  background-position: center;
+  height: 280vh;
+}
+
+
+h1 {
+  color: var(--whiskey-orange);
+}
+
+
+/* The 18 display boxes */
+.cubby-1 {
+  border: 10px solid --sky-blue;
+}
+
+.cubby-2
+.cubby-3
+.cubby-4
+
+.cubby-5
+.cubby-6
+.cubby-7
+.cubby-8
+
+.cubby-9
+.cubby-10
+.cubby-11
+.cubby-12
+
+.cubby-13
+.cubby-14
+.cubby-15
+.cubby-16
+
+.cubby-17
+.cubby-18
+
+
+
+
+
+
+.container{
+  /* border: 3px solid red; */
   display: flex;
   flex-direction: row;
-  /* align-content: space-between;
-  justify-content: space-between;
-  list-style-type: none; */
-  list-style-type: none;
   text-decoration: none;
   justify-content: right;
-  text-align: end;
-};
+  text-align: end; 
+  /* align-content: space-between; */
+  /* justify-content: space-between; */
+}
 
-
-.add-more{
-  border: solid 3px black;
+.container_1{
+  border: 3px solid green;
   display: flex;
-  justify-content: end;
-  height: 10px;
+  padding-top: 10px;
+  flex-direction: row; 
+  text-decoration: none; 
+  justify-content: right; 
+  text-align: end;
+}; 
+
+.container_2{
+  border: solid 3px red;
+  /* height:50px;
+  width:50px; */
 };
 
-.test-contaier{
-  border: solid 3px green;
-  height: 10px;
-  width: 10px;
+.image1 {
+  height: 50%;
+  width: 50%;
 }
-
-.first-shelf{
-  padding: 10px;
-  border: solid 10px brown;
-  
-}
-
-
-

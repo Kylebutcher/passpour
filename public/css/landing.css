@@ -1,6 +1,11 @@
 body{
     background-color: #Abaca7;
 }
+header{
+    background-color: #451e05;
+    height: 80px;
+    padding-top: 5px;
+}
 h1{
     color:#D07725;
 }
