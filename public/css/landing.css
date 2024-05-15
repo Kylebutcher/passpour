@@ -3,9 +3,13 @@ body{
 }
 header{
     background-color: #451e05;
-    height: 80px;
-    padding-top: 5px;
-}
+    padding: 10px;
+    border-radius: 2px;
+  }
+#logo{
+    max-width: 20%;
+    max-height: 20%;
+  }
 h1{
     color:#D07725;
 }
@@ -46,11 +50,10 @@ label{
     margin: 3px;
  
 }
-
+/* 
 #title{
-    margin: 3px;
-  
-}
+    margin: 3px; 
+} */
 
 ::placeholder{
     width: 100%; 
