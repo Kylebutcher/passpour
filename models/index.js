@@ -1,11 +1,14 @@
 const User = require('./User');
 const Accolade = require('./Accolade');
 const Bottle = require('./Bottle');
+
 const UserAccolade = require('./UserAccolade')
 const FavoriteBottle = require('./FavoriteBottle')
 
 
+
 // Creates a relationship between User and Accolade model, with a "belongs to many" relationship of the Accolade to the User.
+
 
 User.belongsToMany(Accolade, {
   through: {
