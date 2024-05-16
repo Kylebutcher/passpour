@@ -1,13 +1,13 @@
 const router = require('express').Router();
-const { User } = require('../../../../lessons/14-MVC/01-Activities/28-Stu_Mini-Project/Develop/models');
+const { User } = require('../../models/User');
 // Import the Project model from the models folder
 const { Project } = require('../../models/User');
 
-User
-  .findAll()
-  .then( results => {
-    //.. results
-  })
+// User
+//   .findAll()
+//   .then( results => {
+//     //.. results
+//   })
 
 router.post('/', async (req, res) => {
   try {
@@ -42,20 +42,22 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-router.post('/', (req, res) => {
+// below not sure of what needs to be in here at the moment if anything at all.
 
-  User.create({
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email
-  })
-    .then((newUser) => {
-      res.json(newUser);
-    })
-    .catch((err) => {
-      res.json(err);
-    });
-});
+// router.post('/', (req, res) => {
+// // unsure if i need this part right now for routing purposes.
+//   // User.create({
+//   //   firstName: req.body.firstName,
+//   //   lastName: req.body.lastName,
+//   //   email: req.body.email
+//   // })
+//     .then((newUser) => {
+//       res.json(newUser);
+//     })
+//     .catch((err) => {
+//       res.json(err);
+//     });
+// });
 
 
 module.exports = router;

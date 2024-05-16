@@ -25,7 +25,7 @@ Bottle.init(
 
  
 
-    //Referencing Keys
+    // Referencing Keys
     author: {
       type: DataTypes.INTEGER,
       references: {

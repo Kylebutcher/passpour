@@ -66,7 +66,7 @@ const sess = {
     maxAge: 60 * 60 * 1000,
     httpOnly: true,
     secure: false,
-    sameSite:'strict',
+    sameSite: 'strict',
   },
   resave: false,
   saveUninitialized: true,
@@ -97,14 +97,10 @@ app.use('/', routes);
 //   return res.render("chat")
 // })
 
-// app.use("/api/chat", chatRoutes)
-
-// all page and api routes go through here
-app.use(routes);
 
 
 sequelize.sync({ force: false }).then(() => {
-  server.listen(PORT, () => console.log('Now listening'));
+  server.listen(PORT, () => console.log(`Now listening at http://localhost${PORT}`));
 });
 
 /**
