@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../../../lessons/14-MVC/01-Activities/28-Stu_Mini-Project/Develop/models');
+const { User } = require('../../models/User');
 // Import the Project model from the models folder
 const { Project } = require('../../models/User');
 
