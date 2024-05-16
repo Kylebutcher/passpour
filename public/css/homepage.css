@@ -29,9 +29,9 @@ header{
    right: 40px;
   }
 
-  button{
+  /* button{
     float: inline-end;
-  }
+  } */
 .container_2{ 
     width: 300px;
     float: left; 
@@ -41,6 +41,16 @@ header{
     border-radius: 10px;
     margin: 20px;
 }
+
+/* .pfp {
+    width: 100%; 
+    /* padding: 15%;  
+    /* margin-bottom: 10px;  
+    font-size: 16px; 
+    background-color: #D07725;
+    color: #0c0c0c;
+} */
+
 .pours {
     display: flex; 
     flex-direction: column;     
@@ -93,6 +103,7 @@ button{
     background-color: #F0ba34;
     color: #120404;
     border-radius: 5px;
+    float: inline-end;
 }
 .title{
     font-size: 20px;
