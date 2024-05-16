@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const { Accolades } = require('../../models/Accolade');
 
-// GET an accolade
-router.get('/:id', async (req, res) => {
+// GET to accolades
+router.get('/accolade', async (req, res) => {
   try {
     const accoladeData = await User.findByPk(req.params.id);
     if (!accoladeData) {
@@ -17,7 +17,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // POST give new accolade to user
-router.post('/', async (req, res) => {
+router.post('/accolade', async (req, res) => {
   try {
     const accoladeData = await User.create(req.body);
     res.status(200).json(accoladeData);
@@ -28,7 +28,7 @@ router.post('/', async (req, res) => {
 
 
 // if a DELETE request is made to /api/projects/:id, that project is deleted.
-router.delete('/:id', async (req, res) => {
+router.delete('/accolade', async (req, res) => {
   try {
     const accoladeData = await Accolade.destroy({
       where: {
