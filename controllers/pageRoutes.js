@@ -7,9 +7,11 @@ const { Accolade, Bottle, User } = require('../models');
 
 // Home Page
 router.get('/', async (req, res) => {
+  let accolades = []
+
   try {
     // Get all Accolades and JOIN with User data
-    const accoladeData = await Accolade.findAll({
+    accolades = await Accolade.findAll({
       include: [
         {
           model: Accolade,
@@ -20,26 +22,25 @@ router.get('/', async (req, res) => {
 
     // Get all Bottles and JOIN with User data
     // Do I hav to make a if statement in the Public JS folder for this to be IF THE USER HAS IT IN THIER COLLECTION? 
-    const bottleData = await Bottle.findAll({
-      include: [
-        {
-          model: Bottle,
-          attributes: ['whiskey_type'],
-        },
-      ],
-    });
-
-
-    res.render('homepage', { 
-      accolades, // The Showcase
-      // I think we should add the bucket list objects and the table of pours object, but I dont know how to do that here / if we need to do it here or somewhere else
-       
-      logged_in: req.session.logged_in,
-
-    });
+    const bottleData = await Bottle.findAll()
+    // const bottleData = await Bottle.findAll({
+    //   include: [
+    //     {
+    //       model: Bottle,
+    //       attributes: ['whiskey_type'],
+    //     },
+    //   ],
+    // });
   } catch (err) {
-    res.status(500).json({ msg: "Please log in to view this page."});
+    console.log(err.message)
   }
+
+  res.render('homepage', { 
+    accolades, // The Showcase
+      // I think we should add the bucket list objects and the table of pours object, but I dont know how to do that here / if we need to do it here or somewhere else
+    logged_in: req.session.logged_in
+  });
+
 });
 
 

@@ -21,7 +21,6 @@ form.addEventListener('submit', submitForm);
 const myList = document.getElementById("myList")
 
 function readPost() {
-
   for (let i = 0; i < post.length; i++) {
     const div = document.createElement("div")
     div.classList.add("post")
