@@ -3,11 +3,11 @@ const { User } = require('../../models/User');
 // Import the Project model from the models folder
 const { Project } = require('../../models/User');
 
-User
-  .findAll()
-  .then( results => {
-    //.. results
-  })
+// User
+//   .findAll()
+//   .then( results => {
+//     //.. results
+//   })
 
 router.post('/', async (req, res) => {
   try {
