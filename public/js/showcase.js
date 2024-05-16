@@ -4,26 +4,6 @@ const bottleCards = document.querySelector('#bottle-cards'); // Needs Attention
 const formResults = document.querySelector('.form-results-title'); // Needs Attention
 
 
-// The 18 image cards
-const bottle0 = document.querySelector('.cubby-0');
-const bottle1 = document.querySelector('.cubby-1');
-const bottle2 = document.querySelector('.cubby-2');
-const bottle3 = document.querySelector('.cubby-3');
-const bottle4 = document.querySelector('.cubby-4');
-const bottle5 = document.querySelector('.cubby-5');
-const bottle6 = document.querySelector('.cubby-6');
-const bottle7 = document.querySelector('.cubby-7');
-const bottle8 = document.querySelector('.cubby-8');
-const bottle9 = document.querySelector('.cubby-9');
-const bottle10 = document.querySelector('.cubby-10');
-const bottle11 = document.querySelector('.cubby-11');
-const bottle12 = document.querySelector('.cubby-12');
-const bottle13 = document.querySelector('.cubby-13');
-const bottle14 = document.querySelector('.cubby-14');
-const bottle15 = document.querySelector('.cubby-15');
-const bottle16 = document.querySelector('.cubby-16');
-const bottle17 = document.querySelector('.cubby-17');
-
 //This one does not belong here yet
 const cubbies = document.querySelector('.cubbies')
 
@@ -40,8 +20,8 @@ function getParams(){
 
 
 function searchApi(citySearch, postalSearch, typeSearch){
-  const requestUrl = `https://api.openbrewerydb.org/v1/breweries?by_city=${citySearch}&by_postal=${postalSearch}&by_type=${typeSearch}&per_page=8`;
-  fetch(requestUrl)
+  const api = '/api/favorites';
+  fetch(api)
   .then(function (response){
     // if( !response.ok ) throw new Error("Bad Request");
     return response.json();
@@ -51,7 +31,7 @@ function searchApi(citySearch, postalSearch, typeSearch){
   })
   .catch(function(error){
     console.log(error)
-    alert("You're Drunk Dumbass, Try Again");
+    alert("You missed your shot, at taking a shot");
   })
 };
 
@@ -87,19 +67,19 @@ function printBottle(bottleCard, i) {
   card.appendChild(wTypeEl)
   card.appendChild(tasteNotesEl)
   card.appendChild(tasteNotesEl)
-
+  cubbies.appendChild(card)
 }
 
 
 function formSubmit(event) {
   event.preventDefault();
 
-  const citySearch = document.querySelector('#cname').value;
+  const wnameForm = document.querySelector('#cname').value;
   const postalSearch = document.querySelector('#zipcode').value;
   const typeSearch = document.querySelector('#type').value;
 
   if (!typeSearch) {
-    console.error('You need to select a type of brewery!');
+    console.error('You need to select a type of Whiskey!');
     return;
   } document.location.assign('showcase.html');
     localStorage.setItem('Name', whiskey_name);
@@ -112,10 +92,3 @@ formSel.addEventListener('submit', formSubmit);
 
 
 getParams();
-
-
-function getParams(){
-  const bottleEl = localStorage.getItem('whiskey_name');
-  const wTypeEl = localStorage.getItem('whiskey_type');
-  const orderEl = localStorage.getItem('order');
-  const tasteNotesEl = localStorage.getItem('taste_notes');
