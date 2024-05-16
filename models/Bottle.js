@@ -27,7 +27,7 @@ Bottle.init(
 
     //Wait - would it just be string and the form will provide a pre-determined set of values that we are aware of and I dont have to worry about this?
 
-    //Referencing Keys
+    // Referencing Keys
     author: {
       type: DataTypes.INTEGER,
       references: {
