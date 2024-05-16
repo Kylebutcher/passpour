@@ -11,7 +11,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 // Sets up Express App
 const app = express();
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3001;
 
 
 /* socket io stuff */
@@ -97,10 +97,6 @@ app.use('/', routes);
 //   return res.render("chat")
 // })
 
-// app.use("/api/chat", chatRoutes)
-
-// all page and api routes go through here
-app.use(routes);
 
 
 sequelize.sync({ force: false }).then(() => {
