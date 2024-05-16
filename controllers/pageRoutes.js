@@ -40,7 +40,6 @@ router.get('/', async (req, res) => {
 //     // for testing purposes change to path
     res.render('homepage', { 
       accolades, // The Showcase
-      // I think we should add the bucket list objects and the table of pours object, but I dont know how to do that here / if we need to do it here or somewhere else
 
       logged_in: req.session.logged_in,
 
