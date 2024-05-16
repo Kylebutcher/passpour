@@ -10,6 +10,7 @@ const testRoutes = require('./test.controller');
 
 
 //Database / Models
+// router.use()
 router.use('/users', users);
 router.use('/accolades', accolades);
 router.use('/bottles', bottles);
@@ -17,5 +18,6 @@ router.use('/bottles', bottles);
 //Socket Testing
 router.use('/test', testRoutes)
 
+// TODO catch all 
 
 module.exports = router;
