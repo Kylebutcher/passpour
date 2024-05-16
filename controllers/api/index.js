@@ -5,7 +5,7 @@ const users = require('./userRoutes');
 const accolades = require('./accoladeRoutes');
 const bottles = require('./bottleRoutes');
 
-const testRoutes = require('./test.controller');
+// const testRoutes = require('../../controllers/');
 
 
 
@@ -16,7 +16,7 @@ router.use('/accolades', accolades);
 router.use('/bottles', bottles);
 
 //Socket Testing
-router.use('/test', testRoutes)
+// router.use('/test', testRoutes)
 
 // TODO catch all 
 
