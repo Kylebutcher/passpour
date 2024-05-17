@@ -1,9 +1,9 @@
-
-
 const router = require('express').Router();
-const users = require('./userRoutes');
-const accolades = require('./accoladeRoutes');
-const bottles = require('./bottleRoutes');
+
+// Import the routes. This is how we make our routes modular.
+const usersRoutes = require('./userRoutes');
+const accoladeRoutes = require('./accoladeRoutes');
+const bottleRoutes = require('./bottleRoutes');
 
 // const testRoutes = require('../../controllers/');
 
