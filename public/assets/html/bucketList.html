@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js"></script>
   <link rel="stylesheet" href="../css/bucket.css">
   <title>Bucket List</title>
 </head>
@@ -19,13 +20,14 @@
 
 <body class="board">
   <form id="bucketForm">
-    <h2>What would you like to try?</h2>
+    <h1>What would you like to try?</h1>
     <input type="text" placeholder="Bottle name" id="bottleName">
-    <textarea placeholder="Bottle descrition" id="bottleDesc"></textarea>
-    <button id="submit">Send it!</button>
+    <textarea placeholder="Bottle description" id="bottleDesc"></textarea>
+    <button type="submit" id="submit">Send it!</button>
   </form>
   <br>
   <h3 id="myList">My List:</h3>
+  <div id="postContainer"></div>
 </body>
 
 <footer>
