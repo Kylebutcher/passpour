@@ -4,8 +4,11 @@ const bottleCards = document.querySelector('#bottle-cards'); // Needs Attention
 const formResults = document.querySelector('.form-results-title'); // Needs Attention
 
 
-//This one does not belong here yet
-const cubbies = document.querySelector('.cubbies')
+const cubbies = document.getElementsByClassName('cubbies')
+
+
+
+
 
 
 function getParams(){
@@ -19,7 +22,7 @@ function getParams(){
 }
 
 
-function searchApi(citySearch, postalSearch, typeSearch){
+function searchApi(bottle, order, taste, type){
   const api = '/api/favorites';
   fetch(api)
   .then(function (response){
@@ -42,53 +45,62 @@ function printResults(data){
   });
 }
 
+printBottle("printbottle call line 48", 2);
 
 function printBottle(bottleCard, i) {
-  if (!bottleCard || !bottleCard.whiskey_name || !bottleCard.whiskey_type || !bottleCard.order || !bottleCard.taste_notes) {
-    return;
-  }
-
-  const wnameEl = document.createElement('h3');
-  wnameEl.textContent = bottleCard.name;
-  wnameEl.setAttribute('style', 'font-size: 16px; font-weight: bold; text-shadow: black 0 0 .3rem; color: var(--whiskey-orange)')
+  // if (!bottleCard || !bottleCard.whiskey_name || !bottleCard.whiskey_type || !bottleCard.order || !bottleCard.taste_notes) {
+  //   return;
+  // }
+  for (let i = 0; i < cubbies.length; i++) {
+    console.log(cubbies[i]);
   
-  const wTypeEl = document.createElement('p');
-  wTypeEl.textContent = bottleCard.whiskey_type;
-
-  const orderEl = document.createElement('p');
-  orderEl.textContent = bottleCard.order;
-
-  const tasteNotesEl = document.createElement('p');
-  tasteNotesEl.textContent = bottleCard.taste_notes;
-
-  const card = document.createElement('div');
-  card.setAttribute('style', 'line-height: .5rem; padding: 5px; text-shadow: black 0 0 .3rem;')
-  card.appendChild(wnameEl) 
-  card.appendChild(wTypeEl)
-  card.appendChild(tasteNotesEl)
-  card.appendChild(tasteNotesEl)
-  cubbies.appendChild(card)
+  
+    const wnameEl = document.createElement('h3');
+    wnameEl.textContent = bottleCard;
+    // wnameEl.setAttribute('style', 'font-size: 16px; font-weight: bold; text-shadow: black 0 0 .3rem; color: var(--whiskey-orange)')
+    
+    // const wTypeEl = document.createElement('p');
+    // wTypeEl.textContent = bottleCard.whiskey_type;
+    
+    // const orderEl = document.createElement('p');
+    // orderEl.textContent = bottleCard.order;
+    
+    // const tasteNotesEl = document.createElement('p');
+    // tasteNotesEl.textContent = bottleCard.taste_notes;
+    
+    const card = document.createElement('div');
+    // card.setAttribute('style', 'line-height: .5rem; padding: 5px; text-shadow: black 0 0 .3rem;')
+    card.appendChild(wnameEl) 
+    // card.appendChild(wTypeEl)
+    // card.appendChild(orderEl)
+    // card.textContent = 'hello';
+    // card.appendChild(tasteNotesEl)
+  
+    cubbies[i].appendChild(card)
+    
+    // console.log(cubbies[0]);
+  }
 }
 
 
-function formSubmit(event) {
-  event.preventDefault();
+// function formSubmit(event) {
+//   event.preventDefault();
 
-  const wnameForm = document.querySelector('#cname').value;
-  const postalSearch = document.querySelector('#zipcode').value;
-  const typeSearch = document.querySelector('#type').value;
+//   const wnameForm = document.querySelector('#cname').value;
+//   const postalSearch = document.querySelector('#zipcode').value;
+//   const typeSearch = document.querySelector('#type').value;
 
-  if (!typeSearch) {
-    console.error('You need to select a type of Whiskey!');
-    return;
-  } document.location.assign('showcase.html');
-    localStorage.setItem('Name', whiskey_name);
-    localStorage.setItem('Type', whiskey_type);
-    localStorage.setItem('Order', order);
-    localStorage.setItem('Taste Notes', taste_notes);
-};
+//   if (!typeSearch) {
+//     console.error('You need to select a type of Whiskey!');
+//     return;
+//   } document.location.assign('showcase.html');
+//     localStorage.setItem('Name', whiskey_name);
+//     localStorage.setItem('Type', whiskey_type);
+//     localStorage.setItem('Order', order);
+//     localStorage.setItem('Taste Notes', taste_notes);
+// };
 
-formSel.addEventListener('submit', formSubmit);
+// formSel.addEventListener('submit', formSubmit);
 
 
-getParams();
+// getParams();

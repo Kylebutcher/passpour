@@ -1,9 +1,10 @@
-// Entire Page needs review
-// Old variables are in there as: Project
-
 const router = require('express').Router();
 const { Accolade, Bottle, User } = require('../models');
-//const withAuth = require('../utils/auth');
+
+const path = require("path");
+
+const withAuth = require('../utils/auth');
+
 
 // Home Page
 router.get('/', async (req, res) => {
@@ -11,7 +12,7 @@ router.get('/', async (req, res) => {
 
   try {
     // Get all Accolades and JOIN with User data
-    accolades = await Accolade.findAll({
+    const accoladeData = await Accolade.findAll({
       include: [
         {
           model: Accolade,
@@ -19,47 +20,68 @@ router.get('/', async (req, res) => {
         },
       ],
     });
+  
+  
+
+
+// router.get('/', (req, res) => {
+//   res.sendFile(path.join(__dirname, '../../public/html/homepage.html'))
+// });
+
+    const accolades = accoladeData.map((accolade) => 
+      accolade.get({ plain: true })
+    );
+
+
 
     // Get all Bottles and JOIN with User data
-    // Do I hav to make a if statement in the Public JS folder for this to be IF THE USER HAS IT IN THIER COLLECTION? 
-    const bottleData = await Bottle.findAll()
-    // const bottleData = await Bottle.findAll({
-    //   include: [
-    //     {
-    //       model: Bottle,
-    //       attributes: ['whiskey_type'],
-    //     },
-    //   ],
-    // });
-  } catch (err) {
-    console.log(err.message)
-  }
-
-  res.render('homepage', { 
-    accolades, // The Showcase
-      // I think we should add the bucket list objects and the table of pours object, but I dont know how to do that here / if we need to do it here or somewhere else
-    logged_in: req.session.logged_in
-  });
-
-});
-
-
-
-router.get('/project/:id', async (req, res) => {
-  try {
-    const projectData = await Project.findByPk(req.params.id, {
+    const bottleData = await Bottle.findAll({
       include: [
         {
-          model: User,
-          attributes: ['name'],
+          model: Bottle,
+          attributes: [
+            'whiskey_name',
+            'whiskey_type'
+          ],
         },
       ],
     });
 
-    const project = projectData.get({ plain: true });
+    const bottles = bottleData.map((bottle) =>
+      bottle.get({ plain: true })
+    );
 
-    res.render('project', {
-      ...project,
+    res.render('homepage', { 
+      accolades,
+      bottles,
+      logged_in: req.session.logged_in
+    });
+
+  } catch (err) {
+    res.status(500).json(err);
+  }  
+});
+
+
+
+router.get('/accolade/:id', async (req, res) => {
+  try {
+    const accoladeData = await Accolade.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: [
+            'category',
+            'badge',
+          ],
+        },
+      ],
+    });
+
+    const accolade = accoladeData.get({ plain: true });
+
+    res.render('accolade', {
+      ...accolade,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -70,22 +92,28 @@ router.get('/project/:id', async (req, res) => {
 
 
 // Use withAuth middleware to prevent access to route
-router.get('/profile', async (req, res) => {
+router.get('/profile', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Accolade }],
+      include: [{ model: 
+        Accolade,
+        Bottle,
+      }],
     });
 
-    const user = userData.get({ plain: true });
 
-    res.render('profile', {
-      ...user,
-      logged_in: true
-    });
+    // const user = userData.get({ plain: true });
+
+    // res.render('profile', {
+    //   ...user,
+    //   logged_in: true
+    // });
+    res.sendFile(path.join(__dirname, '../public/html/profile.html'))
+    // res.send("Hello");
   } catch (err) {
-    res.status(500).json({ status: "Error on homeRoutes, line 79"});
+    res.status(500).json({ status: "Error on pageRoutes, line 102"});
   }
 });
 

@@ -22,7 +22,9 @@ router.get('/:id', async (req, res) => {
     }
     res.status(200).json(accoladeData);
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json({
+      message: "accoladeRoutes in api line 25",});
+      return;
   }
 });
 
