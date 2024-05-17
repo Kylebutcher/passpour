@@ -32,7 +32,10 @@ const mount = require("./services/socketio")
  */
 io.on('connection', (socket) => {
   console.log('A user connected');
-
+  socket.on('new-user', name => {
+    users[socket.id] = name
+    socket.broadcast.emit('user-connected', message)
+  })
   // Broadcast chat message to all connected users
   socket.on('chat message', (msg) => {
     if (msg === '\\logout') {
