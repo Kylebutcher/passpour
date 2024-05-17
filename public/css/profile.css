@@ -1,14 +1,15 @@
-body{
+body {
     background-color: #Abaca7;
 }
-header{
+
+header {
     position: relative;
     background-color: #451e05;
     padding: 10px;
     border-radius: 5px;
-  }
-  
-  nav{
+}
+
+nav {
     float: right;
     display: flex;
     flex-direction: row;
@@ -16,28 +17,25 @@ header{
     justify-content: space-between;
     padding: 5px;
     margin: 3px;
-  }
-  
-  #logo{
+}
+
+#logo {
     max-width: 20%;
     max-height: 20%;
-  }
+}
 
-  #logout{
+#logout {
     position: absolute;
     top: 80px;
-   right: 40px;
-  }
+    right: 40px;
+}
 
-  /* button{
-    float: inline-end;
-  } */
-.container_2{ 
+.container_2 {
     width: 300px;
-    float: left; 
-    padding: 30px; 
-    border:2px solid #F0ba34;
-    box-sizing: border-box;  
+    float: left;
+    padding: 30px;
+    border: 2px solid #F0ba34;
+    box-sizing: border-box;
     border-radius: 10px;
     margin: 20px;
 }
@@ -52,87 +50,94 @@ header{
 } */
 
 .pours {
-    display: flex; 
-    flex-direction: column;     
+    display: flex;
+    flex-direction: column;
 }
-.pours button{
-    width: 100%; 
-    padding: 15px; 
-    margin-bottom: 10px; 
-    font-size: 16px; 
+
+.pours button {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    font-size: 16px;
     background-color: #D07725;
     color: #0c0c0c;
 }
-.container_3{ 
+
+.container_3 {
     width: 800px;
-    float: right; 
-    padding-top: 5px; 
-    padding-right: 30px; 
-    padding-bottom: 20px; 
+    float: right;
+    padding-top: 5px;
+    padding-right: 30px;
+    padding-bottom: 20px;
     padding-left: 20px;
-    border:2px solid #451e05;
-    box-sizing: border-box;  
+    border: 2px solid #451e05;
+    box-sizing: border-box;
     border-radius: 10px;
     margin: 20px;
 }
-.container_4{ 
+
+.container_4 {
     width: 800px;
-    float: right; 
-    padding-top: 5px; 
-    padding-right: 30px; 
-    padding-bottom: 20px; 
+    float: right;
+    padding-top: 5px;
+    padding-right: 30px;
+    padding-bottom: 20px;
     padding-left: 20px;
-    border:2px solid #451e05;
-    box-sizing: border-box;  
+    border: 2px solid #451e05;
+    box-sizing: border-box;
     border-radius: 10px;
     margin: 20px;
 }
-.container_5{ 
+
+.container_5 {
     width: 800px;
-    float: right; 
-    padding-top: 5px; 
-    padding-right: 30px; 
-    padding-bottom: 20px; 
+    float: right;
+    padding-top: 5px;
+    padding-right: 30px;
+    padding-bottom: 20px;
     padding-left: 20px;
-    border:2px solid #451e05;
-    box-sizing: border-box;  
+    border: 2px solid #451e05;
+    box-sizing: border-box;
     border-radius: 10px;
     margin: 20px;
 }
-button{
+
+button {
     background-color: #F0ba34;
     color: #120404;
     border-radius: 5px;
     float: inline-end;
 }
-.title{
+
+.title {
     font-size: 20px;
-    color:#5b5d52;
+    color: #5b5d52;
 }
+
 .diamond-container {
-    width: 60px; 
-    height: 60px; 
-    background-color: #D07725; 
+    width: 60px;
+    height: 60px;
+    background-color: #D07725;
     position: relative;
     transform: rotate(45deg);
-   
+
 }
+
 .circle-container {
-    width: 100px; 
-    height: 100px; 
-    background-color: #D07725; 
-    border-radius: 50%; /* Makes the container circular */
+    width: 100px;
+    height: 100px;
+    background-color: #D07725;
+    border-radius: 50%;
+    /* Makes the container circular */
 }
 
-
-
-footer{
-    border:2px solid #F0ba34;
+footer {
+    border: 2px solid #F0ba34;
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: #ccc; 
+    background-color: #ccc;
     padding: 10px;
     text-align: center;
-    
+
 }
