@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { Accolade, Bottle, User } = require('../models');
+const { Accolade, Bottle, User, UserAccolade} = require('../models');
+
 
 const path = require("path");
 
@@ -8,6 +9,7 @@ const withAuth = require('../utils/auth');
 
 // Home Page
 router.get('/', async (req, res) => {
+
 //   let accolades = []
 
 //   try {
@@ -20,6 +22,7 @@ router.get('/', async (req, res) => {
 //         },
 //       ],
 //     });
+
   
   
 
@@ -31,6 +34,7 @@ router.get('/', async (req, res) => {
 //     const accolades = accoladeData.map((accolade) => 
 //       accolade.get({ plain: true })
 //     );
+
 
 
 
@@ -53,8 +57,10 @@ router.get('/', async (req, res) => {
 
     res.render('homepage', { 
       // accolades,
+
       // bottles,
       logged_in: req.session.logged_in
+
     });
 
   // } catch (err) {
@@ -67,15 +73,15 @@ router.get('/', async (req, res) => {
 router.get('/accolade/:id', async (req, res) => {
   try {
     const accoladeData = await Accolade.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: [
-            'category',
-            'badge',
-          ],
-        },
-      ],
+      // include: [
+      //   {
+      //     model: User,
+      //     attributes: [
+      //       'category',
+      //       'badge',
+      //     ],
+      //   },
+      // ],
     });
 
     const accolade = accoladeData.get({ plain: true });
@@ -92,6 +98,7 @@ router.get('/accolade/:id', async (req, res) => {
 
 
 // Use withAuth middleware to prevent access to route
+
 // router.get('/profile', withAuth, async (req, res) => {
 //   try {
 //     // Find the logged in user based on the session ID
@@ -116,6 +123,7 @@ router.get('/accolade/:id', async (req, res) => {
 //     res.status(500).json({ status: "Error on pageRoutes, line 102"});
 //   }
 // });
+
 
 
 
