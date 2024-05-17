@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { Accolade, Bottle, User } = require('../models');
+const { Accolade, Bottle, User, UserAccolade} = require('../models');
+
 
 const path = require("path");
 
@@ -13,12 +14,14 @@ router.get('/', async (req, res) => {
   try {
     // Get all Accolades and JOIN with User data
     const accoladeData = await Accolade.findAll({
-      include: [
-        {
-          model: Accolade,
-          attributes: ['badge'],
-        },
-      ],
+      // include: [
+      //   {
+      //     model: User,
+      //     through: UserAccolade,
+      //     as: 'user_id'
+      //     // attributes: ['badge'],
+    //     },
+    //   ],
     });
   
   
@@ -38,11 +41,11 @@ router.get('/', async (req, res) => {
     const bottleData = await Bottle.findAll({
       include: [
         {
-          model: Bottle,
-          attributes: [
-            'whiskey_name',
-            'whiskey_type'
-          ],
+          model: User,
+      //     // attributes: [
+      //     //   'whiskey_name',
+      //     //   'whiskey_type'
+      //     // ],
         },
       ],
     });
@@ -52,9 +55,9 @@ router.get('/', async (req, res) => {
     );
 
     res.render('homepage', { 
-      accolades,
+      // accolades,
       bottles,
-      logged_in: req.session.logged_in
+      // logged_in: req.session.logged_in
     });
 
   } catch (err) {
@@ -67,15 +70,15 @@ router.get('/', async (req, res) => {
 router.get('/accolade/:id', async (req, res) => {
   try {
     const accoladeData = await Accolade.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: [
-            'category',
-            'badge',
-          ],
-        },
-      ],
+      // include: [
+      //   {
+      //     model: User,
+      //     attributes: [
+      //       'category',
+      //       'badge',
+      //     ],
+      //   },
+      // ],
     });
 
     const accolade = accoladeData.get({ plain: true });
@@ -110,7 +113,7 @@ router.get('/profile', withAuth, async (req, res) => {
     //   ...user,
     //   logged_in: true
     // });
-    res.sendFile(path.join(__dirname, '../public/html/profile.html'))
+    res.sendFile(path.join(__dirname, '../public/assets/html/profile.html'))
     // res.send("Hello");
   } catch (err) {
     res.status(500).json({ status: "Error on pageRoutes, line 102"});

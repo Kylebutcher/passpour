@@ -12,14 +12,16 @@ const FavoriteBottle = require('./FavoriteBottle')
 
 User.belongsToMany(Accolade, {
   through: {
-    model: UserAccolade
+    model: UserAccolade,
+    foreignKey: "user_id"
   },
   as: 'user_accolade'
 });
 
 Accolade.belongsToMany(User, {
   through: {
-    model: UserAccolade
+    model: UserAccolade,
+    foreignKey: 'accolade_id'
   },
   as: 'accolade_user'
 });
