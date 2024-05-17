@@ -104,7 +104,7 @@ button{
     background-color: #D07725; 
     position: relative;
     transform: rotate(45deg);
-   
+
 }
 .circle-container {
     width: 100px; 
@@ -127,8 +127,31 @@ footer{
 }
 /* -------------------- Media queries -------------> */
 
-@media screen and (max-with: 1150px) {
+@media screen and (max-width: 1150px) {
     body {
         display: flex;
+        flex-direction: column;
+        flex-wrap:wrap;
+        }
+
+    div.container_2 {
+        display: flex; 
+        flex-direction: column;
+        flex-wrap: wrap;
+
+    }
+}
+
+@media screen and (max-width: 850px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    div.container_2 {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
     }
 }
