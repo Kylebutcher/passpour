@@ -23,21 +23,21 @@ router.use('/bottles', bottleRoutes);
 // copy pasted this below from the test.controller.js file and deleted that file
 // const router = require("express").Router()
 
-router.get("/", (req, res) => {
-  res.send('GET route for /api/test works')
-})
+// router.get("/", (req, res) => {
+//   res.send('GET route for /api/test works')
+// })
 
-router.post("/", (req, res) => {
-  res.send('POST route for /api/test works')
-})
+// router.post("/", (req, res) => {
+//   res.send('POST route for /api/test works')
+// })
 
-router.put("/", (req, res) => {
-  res.send('PUT route for /api/test works')
-})
+// router.put("/", (req, res) => {
+//   res.send('PUT route for /api/test works')
+// })
 
-router.delete("/", (req, res) => {
-  res.send('DELETE route for /api/test works')
-})
+// router.delete("/", (req, res) => {
+//   res.send('DELETE route for /api/test works')
+// })
 
 module.exports = router;
   
