@@ -125,3 +125,10 @@ footer{
     text-align: center;
     
 }
+/* -------------------- Media queries -------------> */
+
+@media screen and (max-with: 1150px) {
+    body {
+        display: flex;
+    }
+}
