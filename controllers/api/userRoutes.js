@@ -6,6 +6,7 @@ const { User } = require('../../models/User');
 router.get('/users', async (req, res) => {
   User.findAll().then((userData) => {
     res.json(userData);
+    console.log("get all users route, line 9")
   })
 })
 
