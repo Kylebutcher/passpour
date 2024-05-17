@@ -1,5 +1,5 @@
 const sequelize = require('../../config/connection');
-const { User, Accolade, Bottle } = require('../../models');
+const { User, Accolade, Bottle, FavoriteBottle } = require('../../models');
 
 const userData = require('./user-data.json');
 const accoladeData = require('./accolade-data.json');
@@ -36,10 +36,19 @@ const seedDatabase = async () => {
   const bottlesArray = await Bottle.bulkCreate(newBottles)
   const bottles = bottlesArray.map(bottle => bottle.get({plain:true}))
 
-  console.log("Users: ", users)
-  console.log("Accolades: ", accolades)
-  console.log("Bottles: ", bottles)
+  const orders = ['Neat', 'On the Rocks', 'Mixed drink']
+  const notes = ['Oak', 'Caramel', 'Vanilla', 'Smoky', 'Fruity', 'Charcoal', 'Spice', 'Floral', 'Dry', 'Nutty', 'Clove', 'Sour', 'Honey', 'Toffee', 'Fig']
+  const favoritesArray = await FavoriteBottle.bulkCreate(users.map(user => {
+    const randomBottle = bottles[Math.floor(Math.random() * bottles.length)].id
+    const randomOrder = orders[Math.floor(Math.random() * orders.length)]
+    const randomNotes = notes[Math.floor(Math.random() * notes.length)]
+    console.log(user.id)
+    return { bottle_id: randomBottle, user_id: user.id, order: randomOrder, taste_notes: randomNotes}
+  }))
 
+  const favorites = favoritesArray.map(favorite => favorite.get({plain:true}))
+
+  console.log(favorites)
   process.exit(0);
 };
 

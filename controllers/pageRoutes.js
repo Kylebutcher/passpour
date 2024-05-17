@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Accolade, Bottle, User, UserAccolade} = require('../models');
+const { Accolade, Bottle, User, UserAccolade, FavoriteBottle } = require('../models');
 
 
 const path = require("path");
@@ -10,64 +10,73 @@ const withAuth = require('../utils/auth');
 // Home Page
 router.get('/', async (req, res) => {
 
-//   let accolades = []
+  //   let accolades = []
 
-//   try {
-//     // Get all Accolades and JOIN with User data
-//     const accoladeData = await Accolade.findAll({
-//       include: [
-//         {
-//           model: Accolade,
-//           attributes: ['badge'],
-//         },
-//       ],
-//     });
-
-  
-  
-
-
-// // router.get('/', (req, res) => {
-// //   res.sendFile(path.join(__dirname, '../../public/html/homepage.html'))
-// // });
-
-//     const accolades = accoladeData.map((accolade) => 
-//       accolade.get({ plain: true })
-//     );
+  //   try {
+  //     // Get all Accolades and JOIN with User data
+  //     const accoladeData = await Accolade.findAll({
+  //       include: [
+  //         {
+  //           model: Accolade,
+  //           attributes: ['badge'],
+  //         },
+  //       ],
+  //     });
 
 
 
 
-//     // Get all Bottles and JOIN with User data
-//     const bottleData = await Bottle.findAll({
-//       include: [
-//         {
-//           model: Bottle,
-//           attributes: [
-//             'whiskey_name',
-//             'whiskey_type'
-//           ],
-//         },
-//       ],
-//     });
 
-//     const bottles = bottleData.map((bottle) =>
-//       bottle.get({ plain: true })
-//     );
+  // // router.get('/', (req, res) => {
+  // //   res.sendFile(path.join(__dirname, '../../public/html/homepage.html'))
+  // // });
 
-    res.render('homepage', { 
-      // accolades,
+  //     const accolades = accoladeData.map((accolade) => 
+  //       accolade.get({ plain: true })
+  //     );
 
-      // bottles,
-      logged_in: req.session.logged_in
 
-    });
+
+
+  //     // Get all Bottles and JOIN with User data
+  //     const bottleData = await Bottle.findAll({
+  //       include: [
+  //         {
+  //           model: Bottle,
+  //           attributes: [
+  //             'whiskey_name',
+  //             'whiskey_type'
+  //           ],
+  //         },
+  //       ],
+  //     });
+
+  //     const bottles = bottleData.map((bottle) =>
+  //       bottle.get({ plain: true })
+  //     );
+
+  res.render('homepage', {
+    // accolades,
+
+    // bottles,
+    logged_in: req.session.logged_in
+
+  });
 
   // } catch (err) {
   //   res.status(500).json(err);
   // }  
 });
 
+
+router.get('/explore', async (req, res) => {
+  const bottleData = await Bottle.findAll()
+  const bottles = bottleData.map(bottle => bottle.get({ plain: true }))
+  res.render('explore', {
+    bottles,
+    layout: 'showcase'
+  });
+})
 
 
 router.get('/accolade/:id', async (req, res) => {
@@ -136,9 +145,17 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/favorites', (req, res) => {
+router.get('/favorites', async (req, res) => {
   if (req.session.logged_in) {
-    res.render('favorites', { layout: 'showcase'});
+    const favoriteData = await User.findOne( {where: {id: req.session.user_id}, include: {
+      model: Bottle,
+    through: FavoriteBottle  }})
+    const user = favoriteData.get({plain:true})
+
+    res.render('favorites', { 
+      bottles: user.bottles,
+      layout: 'showcase' 
+    });
     return;
   }
   res.render('login');
@@ -147,7 +164,7 @@ router.get('/favorites', (req, res) => {
 router.get('/profile', (req, res) => {
   console.log(req.session)
   if (req.session.logged_in) {
-    res.render('profile', { layout: 'profile'});
+    res.render('profile', { layout: 'profile' });
     return;
   }
   res.render('login');
