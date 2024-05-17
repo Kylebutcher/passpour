@@ -82,6 +82,7 @@ footer{
     max-width: 75%;
   }
 }
+
 #postContainer {
   display: flex;
   flex-direction: row;

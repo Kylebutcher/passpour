@@ -1,6 +1,5 @@
 const router = require("express").Router()
 
-
 module.exports = (io) => {
 
   router.post('/message', (req, res) => {

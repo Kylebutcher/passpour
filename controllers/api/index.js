@@ -7,8 +7,6 @@ const bottleRoutes = require('./bottleRoutes');
 
 // const testRoutes = require('../../controllers/');
 
-
-
 //Database / Models
 // router.use()
 router.use('/users', usersRoutes);
