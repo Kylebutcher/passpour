@@ -24,7 +24,9 @@ router.get('/bottles/:id', async (req, res) => {
     }
     res.status(200).json(bottleData);
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json({
+      message: "accoladeRoutes in api line 28",});
+      return;
   }
 });
 
@@ -66,7 +68,9 @@ router.put('/bottles/:id', async (req, res) => {
     }
     res.status(200).json(bottleData);
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json({
+      message: "bottleRoutes in api line 70",});
+      return;
   }
 });
 
