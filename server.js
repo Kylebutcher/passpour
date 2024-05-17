@@ -32,12 +32,16 @@ const mount = require("./services/socketio")
  * boots up the socket functionality
  */
 io.on('connection', (socket) => {
-
   console.log('A user connected');
 
   // Broadcast chat message to all connected users
   socket.on('chat message', (msg) => {
-    io.emit('chat message', msg);
+    if (msg === '\\logout') {
+      console.log('A user disconnected')
+      socket.disconnect();
+    } else {
+      socket.broadcast.emit('chat message', msg);
+    }
   });
 
   // Handle disconnection
