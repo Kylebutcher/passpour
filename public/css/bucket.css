@@ -9,7 +9,7 @@ a{
   color: #ffffff;
   margin: 3px;
   padding: 3px;
-  background-color: #31c5ff;
+  background-color: #D07725;
   border-radius: 5px;
 }
 
@@ -82,3 +82,46 @@ footer{
     max-width: 75%;
   }
 }
+#postContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start; 
+  flex-wrap: wrap;
+
+}
+
+.post-it {
+
+  /* background-color: yellow; */
+  color:black;
+  padding: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 200px; 
+
+}
+.post-it p {
+  margin: 0; 
+  border-bottom: 1px solid black; 
+  padding-bottom: 5px; 
+}
+
+
+.delete-btn {
+ 
+  background-color: #F0ba34;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 3px;
+  margin-top: 10px;
+ 
+}
+
+.delete-btn:hover {
+  background-color: #d32f2f;
+}
+
