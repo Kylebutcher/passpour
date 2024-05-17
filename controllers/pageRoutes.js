@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { Accolade, Bottle, User } = require('../models');
+const { Accolade, Bottle, User, UserAccolade} = require('../models');
+
 
 const path = require("path");
 
@@ -8,58 +9,63 @@ const withAuth = require('../utils/auth');
 
 // Home Page
 router.get('/', async (req, res) => {
-  let accolades = []
 
-  try {
-    // Get all Accolades and JOIN with User data
-    const accoladeData = await Accolade.findAll({
-      include: [
-        {
-          model: Accolade,
-          attributes: ['badge'],
-        },
-      ],
-    });
+//   let accolades = []
+
+//   try {
+//     // Get all Accolades and JOIN with User data
+//     const accoladeData = await Accolade.findAll({
+//       include: [
+//         {
+//           model: Accolade,
+//           attributes: ['badge'],
+//         },
+//       ],
+//     });
+
   
   
 
 
-// router.get('/', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../../public/html/homepage.html'))
-// });
+// // router.get('/', (req, res) => {
+// //   res.sendFile(path.join(__dirname, '../../public/html/homepage.html'))
+// // });
 
-    const accolades = accoladeData.map((accolade) => 
-      accolade.get({ plain: true })
-    );
+//     const accolades = accoladeData.map((accolade) => 
+//       accolade.get({ plain: true })
+//     );
 
 
 
-    // Get all Bottles and JOIN with User data
-    const bottleData = await Bottle.findAll({
-      include: [
-        {
-          model: Bottle,
-          attributes: [
-            'whiskey_name',
-            'whiskey_type'
-          ],
-        },
-      ],
-    });
 
-    const bottles = bottleData.map((bottle) =>
-      bottle.get({ plain: true })
-    );
+//     // Get all Bottles and JOIN with User data
+//     const bottleData = await Bottle.findAll({
+//       include: [
+//         {
+//           model: Bottle,
+//           attributes: [
+//             'whiskey_name',
+//             'whiskey_type'
+//           ],
+//         },
+//       ],
+//     });
+
+//     const bottles = bottleData.map((bottle) =>
+//       bottle.get({ plain: true })
+//     );
 
     res.render('homepage', { 
-      accolades,
-      bottles,
+      // accolades,
+
+      // bottles,
       logged_in: req.session.logged_in
+
     });
 
-  } catch (err) {
-    res.status(500).json(err);
-  }  
+  // } catch (err) {
+  //   res.status(500).json(err);
+  // }  
 });
 
 
@@ -67,15 +73,15 @@ router.get('/', async (req, res) => {
 router.get('/accolade/:id', async (req, res) => {
   try {
     const accoladeData = await Accolade.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: [
-            'category',
-            'badge',
-          ],
-        },
-      ],
+      // include: [
+      //   {
+      //     model: User,
+      //     attributes: [
+      //       'category',
+      //       'badge',
+      //     ],
+      //   },
+      // ],
     });
 
     const accolade = accoladeData.get({ plain: true });
@@ -92,30 +98,32 @@ router.get('/accolade/:id', async (req, res) => {
 
 
 // Use withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
-  try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: 
-        Accolade,
-        Bottle,
-      }],
-    });
+
+// router.get('/profile', withAuth, async (req, res) => {
+//   try {
+//     // Find the logged in user based on the session ID
+//     const userData = await User.findByPk(req.session.user_id, {
+//       attributes: { exclude: ['password'] },
+//       include: [{ model: 
+//         Accolade,
+//         Bottle,
+//       }],
+//     });
 
 
-    // const user = userData.get({ plain: true });
+//     // const user = userData.get({ plain: true });
 
-    // res.render('profile', {
-    //   ...user,
-    //   logged_in: true
-    // });
-    res.sendFile(path.join(__dirname, '../public/html/profile.html'))
-    // res.send("Hello");
-  } catch (err) {
-    res.status(500).json({ status: "Error on pageRoutes, line 102"});
-  }
-});
+//     // res.render('profile', {
+//     //   ...user,
+//     //   logged_in: true
+//     // });
+//     res.sendFile(path.join(__dirname, '../public/html/profile.html'))
+//     // res.send("Hello");
+//   } catch (err) {
+//     res.status(500).json({ status: "Error on pageRoutes, line 102"});
+//   }
+// });
+
 
 
 
@@ -125,8 +133,24 @@ router.get('/login', (req, res) => {
     res.redirect('/profile');
     return;
   }
-
   res.render('login');
 });
+
+router.get('/favorites', (req, res) => {
+  if (req.session.logged_in) {
+    res.render('favorites', { layout: 'showcase'});
+    return;
+  }
+  res.render('login');
+})
+
+router.get('/profile', (req, res) => {
+  console.log(req.session)
+  if (req.session.logged_in) {
+    res.render('profile', { layout: 'profile'});
+    return;
+  }
+  res.render('login');
+})
 
 module.exports = router;

@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const { User } = require('../../models/User');
+const { User } = require('../../models');
 
 
 //Get all users
-router.get('/users', async (req, res) => {
+router.get('/', async (req, res) => {
   User.findAll().then((userData) => {
     res.json(userData);
     console.log("get all users route, line 9")
@@ -13,20 +13,24 @@ router.get('/users', async (req, res) => {
 
 
 // A user signed up for our site, creating a new user
-router.post('/users', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const userData = await User.create({
-      name: req.body.name,
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      region: req.body.region
     });
 
+    console.log(userData)
     req.session.save(() => {
       req.session.logged_in = true;
+      res.status(200).json({ ok: true });
     })
 
-    res.status(200).json({ userData });
   } catch (err) {
+    console.log(err)
     res.status(400).json(err);
   }
 });
@@ -56,12 +60,13 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    res.session.save(() => {
+    req.session.save(() => {
       req.session.logged_in = true;
 
-      res.json({ user: userData, messasge: 'You are now logged in!' });
+      res.status(200).json({ user: userData, message: 'You are now logged in!' });
     });
   } catch (err) {
+    console.log(err)
     res.status(400).json(err);
   }
 });
