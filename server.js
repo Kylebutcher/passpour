@@ -77,11 +77,11 @@ const sess = {
 
 app.use(session(sess));
 
-// const hbs = exphbs.create({ helpers });
+const hbs = exphbs.create({ helpers });
 
 
 // Set Handlebars as the default template engine.
-// app.engine('handlebars', hbs.engine);
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 // app.use(express.static('public'))
