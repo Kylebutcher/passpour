@@ -11,9 +11,9 @@ const bottleRoutes = require('./bottleRoutes');
 
 //Database / Models
 // router.use()
-router.use('/users', users);
-router.use('/accolades', accolades);
-router.use('/bottles', bottles);
+router.use('/users', usersRoutes);
+router.use('/accolades', accoladeRoutes);
+router.use('/bottles', bottleRoutes);
 
 //Socket Testing
 // router.use('/test', testRoutes)
