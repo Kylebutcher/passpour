@@ -1,6 +1,10 @@
 const router = require('express').Router();
 const { Accolade, Bottle, User } = require('../models');
+
+const path = require("path");
+
 const withAuth = require('../utils/auth');
+
 
 // Home Page
 router.get('/', async (req, res) => {
@@ -16,6 +20,13 @@ router.get('/', async (req, res) => {
         },
       ],
     });
+  
+  
+
+
+// router.get('/', (req, res) => {
+//   res.sendFile(path.join(__dirname, '../../public/html/homepage.html'))
+// });
 
     const accolades = accoladeData.map((accolade) => 
       accolade.get({ plain: true })
@@ -92,12 +103,15 @@ router.get('/profile', withAuth, async (req, res) => {
       }],
     });
 
-    const user = userData.get({ plain: true });
 
-    res.render('profile', {
-      ...user,
-      logged_in: true
-    });
+    // const user = userData.get({ plain: true });
+
+    // res.render('profile', {
+    //   ...user,
+    //   logged_in: true
+    // });
+    res.sendFile(path.join(__dirname, '../public/html/profile.html'))
+    // res.send("Hello");
   } catch (err) {
     res.status(500).json({ status: "Error on pageRoutes, line 102"});
   }
