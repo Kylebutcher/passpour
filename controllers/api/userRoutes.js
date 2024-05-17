@@ -1,63 +1,67 @@
 const router = require('express').Router();
 const { User } = require('../../models/User');
-// Import the Project model from the models folder
-const { Project } = require('../../models/User');
 
-// User
-//   .findAll()
-//   .then( results => {
-//     //.. results
-//   })
 
+
+
+// A user signed up for our site
 router.post('/', async (req, res) => {
   try {
-    const newProject = await Project.create({
-      ...req.body,
-      user_id: req.session.user_id,
+    const newUser = await User.create({
+      ...req.body
     });
 
-    res.status(200).json(newProject);
+    req.session.save(() => {
+      req.session.user_id = newUser.id
+    })
+
+    res.status(200).json({ ok : true });
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
+
+
+// PUT Update User based on id
+router.put('/:id', (req, res) => {
+  User.update(
+    {
+      // these are the fields that can be edited
+      region: req.body.region
+    },
+  )
+    .then((updateUser) => {
+      // sends the updated bottle as a json response
+      res.json(updateUser);
+    })
+    .catch((err) => res.json(err));
+});
+
+
+
+// A user that no longer wants to be a part of our site
 router.delete('/:id', async (req, res) => {
   try {
-    const projectData = await Project.destroy({
+    const userData = await User.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
       },
     });
 
-    if (!projectData) {
-      res.status(404).json({ message: 'No project found with this id!' });
+    if (!userData) {
+      res.status(404).json({ message: 'No user was found with this id.' });
       return;
     }
 
-    res.status(200).json(projectData);
+    res.status(200).json(userData);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-// below not sure of what needs to be in here at the moment if anything at all.
 
-// router.post('/', (req, res) => {
-// // unsure if i need this part right now for routing purposes.
-//   // User.create({
-//   //   firstName: req.body.firstName,
-//   //   lastName: req.body.lastName,
-//   //   email: req.body.email
-//   // })
-//     .then((newUser) => {
-//       res.json(newUser);
-//     })
-//     .catch((err) => {
-//       res.json(err);
-//     });
-// });
 
 
 module.exports = router;

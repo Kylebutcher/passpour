@@ -1,13 +1,23 @@
 const router = require('express').Router();
-const { Accolades } = require('../../models/Accolade');
+const { Accolade } = require('../../models/Accolade');
 
-// GET an accolade
+
+// GET all Accolades
+router.get('/', async (req, res) => {
+  Accolade.findAll().then((AccoladeData) => {
+    res.json(AccoladeData);
+  });
+});
+
+
+
+// GET a specific accolade
 router.get('/:id', async (req, res) => {
   try {
     const accoladeData = await User.findByPk(req.params.id);
     if (!accoladeData) {
       res.status(404).json({
-        message: 'No user with this id!' });
+        message: 'No accolade can be found' });
         return;
     }
     res.status(200).json(accoladeData);
@@ -16,7 +26,10 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// POST give new accolade to user
+
+// ASK KATY
+// update methoud for sequlize (find 1 + update)
+// POST give accolade to user
 router.post('/', async (req, res) => {
   try {
     const accoladeData = await User.create(req.body);
@@ -27,25 +40,6 @@ router.post('/', async (req, res) => {
 });
 
 
-// if a DELETE request is made to /api/projects/:id, that project is deleted.
-router.delete('/:id', async (req, res) => {
-  try {
-    const accoladeData = await Accolade.destroy({
-      where: {
-        id: req.params.id, 
-        user_id: req.session.user_id,
-      },
-    });
 
-    if (!accoladeData) {
-      res.status(404).json({ message: 'No project found with this id!' });
-      return;
-    }
-
-    res.status(200).json(accoladeData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
 
 module.exports = router;

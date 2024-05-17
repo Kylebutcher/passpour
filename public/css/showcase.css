@@ -51,9 +51,9 @@ h1 {
 
 
 
-/* Modal pop up of the Bottle object */
+/* Modal pop up of the Bottle object to add details of thier entry*/
 .modal-dialog {
-
+  color: var(--whiskey-orange)
 }
 
 
