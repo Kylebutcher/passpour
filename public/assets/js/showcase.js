@@ -4,7 +4,7 @@ const bottleCards = document.querySelector('#bottle-cards'); // Needs Attention
 const formResults = document.querySelector('.form-results-title'); // Needs Attention
 
 
-const cubbies = document.getElementsByClassName('cubbies')
+const cubbies = document.querySelector('.cubbies')
 
 
 
@@ -22,7 +22,7 @@ function getParams(){
 }
 
 
-function searchApi(bottle, order, taste, type){
+function searchApi(){
   const api = '/api/favorites';
   fetch(api)
   .then(function (response){
@@ -56,7 +56,7 @@ function printBottle(bottleCard, i) {
   
   
     const wnameEl = document.createElement('h3');
-    wnameEl.textContent = bottleCard;
+    wnameEl.textContent = bottleCard.name;
     // wnameEl.setAttribute('style', 'font-size: 16px; font-weight: bold; text-shadow: black 0 0 .3rem; color: var(--whiskey-orange)')
     
     // const wTypeEl = document.createElement('p');
@@ -69,6 +69,7 @@ function printBottle(bottleCard, i) {
     // tasteNotesEl.textContent = bottleCard.taste_notes;
     
     const card = document.createElement('div');
+    card.classList.add('col-3')
     // card.setAttribute('style', 'line-height: .5rem; padding: 5px; text-shadow: black 0 0 .3rem;')
     card.appendChild(wnameEl) 
     // card.appendChild(wTypeEl)
@@ -76,7 +77,7 @@ function printBottle(bottleCard, i) {
     // card.textContent = 'hello';
     // card.appendChild(tasteNotesEl)
   
-    cubbies[i].appendChild(card)
+    cubbies.appendChild(card)
     
     // console.log(cubbies[0]);
   }
