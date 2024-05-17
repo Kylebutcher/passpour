@@ -116,7 +116,9 @@ router.delete('/users/:id', async (req, res) => {
 
     res.status(200).json(userData);
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json({
+      message: "userRoutes in api line 120",});
+      return;
   }
 });
 

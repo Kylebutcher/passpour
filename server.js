@@ -15,7 +15,6 @@ const PORT = process.env.PORT || 3002;
 
 
 /* socket io stuff */
-
 const http = require('http');
 const socketIo = require('socket.io');
 const server = http.createServer(app);
@@ -59,7 +58,7 @@ app.post('/api/chat/message', (req, res) => {
 });
 
 
-/* Your cookie-handling settings should be inserted in the cookie object below */
+/* cookie-handling settings is inserted in the cookie object below */
 const sess = {
   secret: 'Super secret secret',
   cookie: {
