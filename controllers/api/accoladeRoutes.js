@@ -3,7 +3,7 @@ const { Accolade } = require('../../models/Accolade');
 
 
 // GET all Accolades
-router.get('/', async (req, res) => {
+router.get('/accolades', async (req, res) => {
   Accolade.findAll().then((AccoladeData) => {
     res.json(AccoladeData);
   });
@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
 
 
 // GET a specific accolade
-router.get('/:id', async (req, res) => {
+router.get('/accolade/:id', async (req, res) => {
   try {
     const accoladeData = await User.findByPk(req.params.id);
     if (!accoladeData) {
