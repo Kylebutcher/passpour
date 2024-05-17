@@ -99,7 +99,7 @@ app.use('/', routes);
 
 
 sequelize.sync({ force: false }).then(() => {
-  server.listen(PORT, () => console.log(`Now listening at http://localhost:${PORT}`));
+  app.listen(PORT, () => console.log(`Now listening at http://localhost:${PORT}`));
 });
 
 /**

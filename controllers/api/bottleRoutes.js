@@ -4,7 +4,7 @@ const { Bottle } = require('../../models/Bottle');
 
 
 // GET all bottles
-router.get('/bottles', async (req, res) => {
+router.get('/', async (req, res) => {
   Bottle.findAll().then((bottleData) => {
     res.json(bottleData);
   });
@@ -13,7 +13,7 @@ router.get('/bottles', async (req, res) => {
 
 
 // GET one bottle
-router.get('/bottles/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const bottleData = await Bottle.findByPk(req.params.id);
     if (!bottleData) {
@@ -33,7 +33,7 @@ router.get('/bottles/:id', async (req, res) => {
 
 // ask KATY
 // POST create a new journal entry for the whiskey product (bottle)
-router.post('/bottles', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const bottleData = await User.create({
       ...req.body
@@ -52,7 +52,7 @@ router.post('/bottles', async (req, res) => {
 
 
 // PUT update a bottle info
-router.put('/bottles/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     const bottleData = await User.update(req.body, {
       where: {
@@ -78,7 +78,7 @@ router.put('/bottles/:id', async (req, res) => {
 
 // ASK KATY
 // POST give a bottle to user to become a favorte
-router.post('/bottles/:id', async (req, res) => {
+router.post('/:id', async (req, res) => {
   try {
     const accoladeData = await User.create(req.body);
     res.status(200).json(accoladeData);
