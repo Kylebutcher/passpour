@@ -130,7 +130,7 @@ footer{
 @media screen and (max-width: 1150px) {
     body {
         display: flex;
-        flex-direction: column;
+        /* flex-direction: column; */
         flex-wrap:wrap;
         }
 
