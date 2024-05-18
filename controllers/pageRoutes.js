@@ -147,9 +147,6 @@ router.get('/login', (req, res) => {
 
 router.get('/favorites', async (req, res) => {
   if (req.session.logged_in) {
-<<<<<<< HEAD
-    res.render('favorites', { layout: 'showcase', isLoggedIn: req.session.logged_in });
-=======
     const favoriteData = await User.findOne( {where: {id: req.session.user_id}, include: {
       model: Bottle,
     through: FavoriteBottle  }})
@@ -159,7 +156,6 @@ router.get('/favorites', async (req, res) => {
       bottles: user.bottles,
       layout: 'showcase' 
     });
->>>>>>> 60674d88424b21abc09ea90197c78d0f79d07085
     return;
   }
   res.render('login');
@@ -168,11 +164,7 @@ router.get('/favorites', async (req, res) => {
 router.get('/profile', (req, res) => {
   console.log(req.session)
   if (req.session.logged_in) {
-<<<<<<< HEAD
     res.render('profile', { layout: 'profile', isLoggedIn: req.session.logged_in } );
-=======
-    res.render('profile', { layout: 'profile' });
->>>>>>> 60674d88424b21abc09ea90197c78d0f79d07085
     return;
   }
   res.render('login');

@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
     req.session.save(() => {
       req.session.logged_in = true;
       req.session.user_id = userData.id
-      
+
       res.status(200).json({ ok: true });
     })
 
@@ -41,24 +41,24 @@ router.post('/', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   try {
-    const userData = await User.findOne({ 
-      where: 
-      {email: req.body.email}
+    const userData = await User.findOne({
+      where:
+        { email: req.body.email }
     });
 
     if (!userData) {
       res
-        .status (400)
-        .json({ message: 'Incorrect email, please review your email and try again'});
+        .status(400)
+        .json({ message: 'Incorrect email, please review your email and try again' });
       return;
     }
 
-    const validPassword = await userData.checkPassword (req.body.password);
+    const validPassword = await userData.checkPassword(req.body.password);
 
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect password, please review and try again.'});
+        .json({ message: 'Incorrect password, please review and try again.' });
       return;
     }
 
@@ -125,8 +125,9 @@ router.delete('/users/:id', async (req, res) => {
     res.status(200).json(userData);
   } catch (err) {
     res.status(500).json({
-      message: "userRoutes in api line 120",});
-      return;
+      message: "userRoutes in api line 120",
+    });
+    return;
   }
 });
 
