@@ -17,6 +17,41 @@ body {
 }
 
 
+a{
+  text-decoration: none;
+  font-size: larger;
+  color: #ffffff;
+  margin: 3px;
+  /* padding: 3px; */
+  /* background-color: #7f9dba; */
+  border-radius: 5px;
+}
+
+header{
+
+  padding: 30px;
+  border-radius: 5px;
+  border: 3px solid red;
+}
+
+nav{
+  float: right;
+  display: flex;
+  flex-direction: row;
+  width: 20%;
+  justify-content: space-between;
+  padding: 5px;
+  margin: 3px;
+}
+
+
+#logout {
+  position: absolute;
+  top: 80px;
+  right: 40px;
+}
+
+
 h1 {
   color: var(--whiskey-orange);
 }
@@ -71,12 +106,12 @@ h1 {
 }
 
 .container_1{
-  border: 3px solid green;
+  /* border: 3px solid green; */
   display: flex;
   padding-top: 10px;
   flex-direction: row; 
   text-decoration: none; 
-  justify-content: right; 
+  justify-content: left; 
   text-align: end;
 }; 
 
