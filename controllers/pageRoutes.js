@@ -74,7 +74,7 @@ router.get('/explore', async (req, res) => {
   const bottles = bottleData.map(bottle => bottle.get({ plain: true }))
   res.render('explore', {
     bottles,
-    layout: 'showcase'
+    layout: 'profile'
   });
 })
 
