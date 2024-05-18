@@ -1,13 +1,12 @@
 const router = require('express').Router();
-const { Bottle } = require('../../models/Bottle');
+const { Bottle } = require('../../models');
 
 
 
 // GET all bottles
 router.get('/', async (req, res) => {
-  Bottle.findAll().then((bottleData) => {
-    res.json(bottleData);
-  });
+  const bottleData = await Bottle.findAll()
+  res.json(bottleData);
 });
 
 

@@ -30,12 +30,19 @@ const chatRoutes = require('./controllers/chat/index')(io);
  * boots up the socket functionality
  */
 io.on('connection', (socket) => {
-
   console.log('A user connected');
-
+  socket.on('new-user', name => {
+    users[socket.id] = name
+    socket.broadcast.emit('user-connected', message)
+  })
   // Broadcast chat message to all connected users
   socket.on('chat message', (msg) => {
-    io.emit('chat message', msg);
+    if (msg === '\\logout') {
+      console.log('A user disconnected')
+      socket.disconnect();
+    } else {
+      socket.broadcast.emit('chat message', msg);
+    }
   });
 
   // Handle disconnection
@@ -45,7 +52,7 @@ io.on('connection', (socket) => {
 });
 
 // app.get("/", (req, res) => {
-//   res.sendFile(path.join(__dirname, "public/index.html"))
+//   res.sendFile(path.join(__dirname, "public/chat_index.html"))
 // })
 
 app.post('/api/chat/message', (req, res) => {
