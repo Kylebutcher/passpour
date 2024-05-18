@@ -21,7 +21,6 @@ const server = http.createServer(app);
 const io = socketIo(server);
 
 const chatRoutes = require('./controllers/chat/index')(io);
-const mount = require("./services/socketio")
 
 // const chatRoutes = require('./controllers/chat/index')(io);
 
@@ -106,11 +105,5 @@ app.use('/', routes);
 
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log(`Now listening at http://localhost:${PORT}`));
+  server.listen(PORT, () => console.log(`Now listening at http://localhost:${PORT}`));
 });
-
-/**
- * This calls a function in services/socketio.js that basically
- * boots up the socket functionality
- */
-mount(io);

@@ -1,16 +1,16 @@
-  <header>
-    <nav class="nav-bar">
-      <a href="">Home</a>
-      <a href="">Bucket List</a>
-      <a href="">About</a>
-      <a href="">Logout</a>
-    </nav>
-  </header>
-  
-  <main>
-    <h1>The Showcase</h1>
-    <div class="container text-center">
-      <div class="row align-items-start clearfix cubbies">
+<header>
+  <nav class="nav-bar">
+    <a href="">Home</a>
+    <a href="">Bucket List</a>
+    <a href="">About</a>
+    <a href="">Logout</a>
+  </nav>
+</header>
+
+<main>
+  <h1>The Showcase</h1>
+  <div class="container text-center">
+    <div class="row align-items-start clearfix cubbies">
       {{#each bottles as |bottle|}}
       <div class="col-3 text-white">
         <h2>{{whiskey_name}}</h2>
@@ -21,20 +21,20 @@
       {{/each}}
     </div>
   </div>
-  </main>
+</main>
 
 
 
 
-  <section>
-    <div class="container_1">
-      <button class="add-more">Add to Showcase</button>
-    </div>
-  </section>
+<section>
+  <div class="container_1">
+    <button class="add-more">Add to Showcase</button>
+  </div>
+</section>
 
 
-    <footer>
-      <p> A Group 2 Production</p>
-    </footer>
+<footer>
+  <p> A Group 2 Production</p>
+</footer>
 
 <script src='/assets/js/showcase.js'> </script>
