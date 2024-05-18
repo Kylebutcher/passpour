@@ -130,7 +130,7 @@ router.get('/accolade/:id', async (req, res) => {
 // If the user is already logged in, redirect the request to profile page route
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect('/profile', { isLoggedIn: req.session.logged_in });
     return;
   }
   res.render('login');
@@ -138,7 +138,7 @@ router.get('/login', (req, res) => {
 
 router.get('/favorites', (req, res) => {
   if (req.session.logged_in) {
-    res.render('favorites', { layout: 'showcase'});
+    res.render('favorites', { layout: 'showcase', isLoggedIn: req.session.logged_in });
     return;
   }
   res.render('login');
@@ -147,7 +147,7 @@ router.get('/favorites', (req, res) => {
 router.get('/profile', (req, res) => {
   console.log(req.session)
   if (req.session.logged_in) {
-    res.render('profile', { layout: 'profile'});
+    res.render('profile', { layout: 'profile', isLoggedIn: req.session.logged_in } );
     return;
   }
   res.render('login');
