@@ -3,9 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
   const postContainer = document.getElementById('postContainer');
 
   function getRandomColor() {
-    // Generate a random color in hexadecimal format
-    return '#' + Math.floor(Math.random() * 16777215).toString(16);
-  }
+    const colors = ['#FF007F', '#F5B700', '#89FC00', '#729B79', '#D35269', '#73937E', '#607196', '#F75C03', '#BDD358'];
+    const randomIndex = Math.floor(Math.random() * colors.length);
+    return colors[randomIndex];
+}
 
   function displayPost(postContent) {
     const postIt = document.createElement('div');
