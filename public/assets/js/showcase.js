@@ -7,10 +7,6 @@ const formResults = document.querySelector('.form-results-title'); // Needs Atte
 const cubbies = document.querySelector('.cubbies')
 
 
-
-
-
-
 function getParams(){
   const bottleEl = localStorage.getItem('whiskey_name');
   const wTypeEl = localStorage.getItem('whiskey_type');

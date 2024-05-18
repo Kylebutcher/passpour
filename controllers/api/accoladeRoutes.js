@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Accolade } = require('../../models/Accolade');
+const { Accolade } = require('../../models');
 
 
 // GET all Accolades
