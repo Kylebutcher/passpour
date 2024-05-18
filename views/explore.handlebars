@@ -6,35 +6,20 @@
     <a href="">Logout</a>
   </nav>
 </header>
-
 <main>
-  <h1>The Showcase</h1>
+  <h1>Explore</h1>
+  <!-- Row 1 -->
   <div class="container text-center">
     <div class="row align-items-start clearfix cubbies">
       {{#each bottles as |bottle|}}
       <div class="col-3 text-white">
         <h2>{{whiskey_name}}</h2>
         <h3>{{whiskey_type}}</h3>
-        <p>{{favoritebottle.order}}</p>
-        <p>{{favoritebottle.taste_notes}}</p>
       </div>
       {{/each}}
     </div>
   </div>
 </main>
-
-
-
-
-<section>
-  <div class="container_1">
-    <button class="add-more">Add to Showcase</button>
-  </div>
-</section>
-
-
 <footer>
   <p> A Group 2 Production</p>
 </footer>
-
-<script src='/assets/js/showcase.js'> </script>

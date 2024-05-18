@@ -27,27 +27,21 @@ Accolade.belongsToMany(User, {
 });
 
 User.belongsToMany(Bottle, {
-  through: {
-    model: FavoriteBottle,
-    foreignKey: 'user_id'
-  },
-  as: 'user_bottle'
+  through: FavoriteBottle,
+  foreignKey: 'user_id'
 });
 
 Bottle.belongsToMany(User, {
-  through: {
-    model: FavoriteBottle,
-    foreignKey: 'bottle_id'
-  },
-  as: 'bottle_user'
+  through: FavoriteBottle,
+  foreignKey: 'bottle_id'
 });
 
-Bottle.belongsTo(User, {
-  foreignKey: 'author'
-});
+// Bottle.belongsTo(User, {
+//   foreignKey: 'author'
+// });
 
-User.hasMany(Bottle, {
-  foreignKey: 'author'
-})
+// User.hasMany(Bottle, {
+//   foreignKey: 'author'
+// })
 
 module.exports = { User, Accolade, Bottle,UserAccolade, FavoriteBottle };

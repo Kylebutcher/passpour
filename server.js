@@ -21,7 +21,6 @@ const server = http.createServer(app);
 const io = socketIo(server);
 
 const chatRoutes = require('./controllers/chat/index')(io);
-const mount = require("./services/socketio")
 
 // const chatRoutes = require('./controllers/chat/index')(io);
 
@@ -31,12 +30,19 @@ const mount = require("./services/socketio")
  * boots up the socket functionality
  */
 io.on('connection', (socket) => {
-
   console.log('A user connected');
-
+  socket.on('new-user', name => {
+    users[socket.id] = name
+    socket.broadcast.emit('user-connected', message)
+  })
   // Broadcast chat message to all connected users
   socket.on('chat message', (msg) => {
-    io.emit('chat message', msg);
+    if (msg === '\\logout') {
+      console.log('A user disconnected')
+      socket.disconnect();
+    } else {
+      socket.broadcast.emit('chat message', msg);
+    }
   });
 
   // Handle disconnection
@@ -46,7 +52,7 @@ io.on('connection', (socket) => {
 });
 
 // app.get("/", (req, res) => {
-//   res.sendFile(path.join(__dirname, "public/index.html"))
+//   res.sendFile(path.join(__dirname, "public/chat_index.html"))
 // })
 
 app.post('/api/chat/message', (req, res) => {
@@ -99,11 +105,5 @@ app.use('/', routes);
 
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log(`Now listening at http://localhost:${PORT}`));
+  server.listen(PORT, () => console.log(`Now listening at http://localhost:${PORT}`));
 });
-
-/**
- * This calls a function in services/socketio.js that basically
- * boots up the socket functionality
- */
-mount(io);

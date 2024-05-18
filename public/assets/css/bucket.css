@@ -9,7 +9,7 @@ a{
   color: #ffffff;
   margin: 3px;
   padding: 3px;
-  background-color: #D07725;
+  background-color: #31c5ff;
   border-radius: 5px;
 }
 
@@ -82,6 +82,7 @@ footer{
     max-width: 75%;
   }
 }
+
 #postContainer {
   display: flex;
   flex-direction: row;

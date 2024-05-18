@@ -7,6 +7,7 @@ const socket = io();
   const messageInput = document.getElementById('messageInput');
   const sendButton = document.getElementById('sendButton');
   const apiButton = document.getElementById('apiButton');
+  const User = require('../../models/User')
 
   // Listen for 'chat message' events and add to messages list
   socket.on('chat message', function(msg) {
@@ -41,6 +42,8 @@ const socket = io();
       const response = await fetch('/api/chat');
       const data = await response.json();
       socket.emit('chat message', data.message);
+      const username = User.email
+      socket.emit("username", {username, message});
     } catch (error) {
       console.error('Error fetching API message:', error);
     }
