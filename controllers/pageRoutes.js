@@ -55,10 +55,8 @@ router.get('/', async (req, res) => {
   //       bottle.get({ plain: true })
   //     );
 
-  res.render('homepage', {
-    // accolades,
-
-    // bottles,
+  res.render('login', {
+    layout: 'profile',
     logged_in: req.session.logged_in
 
   });
@@ -104,8 +102,6 @@ router.get('/accolade/:id', async (req, res) => {
   }
 });
 
-
-
 // Use withAuth middleware to prevent access to route
 
 // router.get('/profile', withAuth, async (req, res) => {
@@ -147,27 +143,30 @@ router.get('/login', (req, res) => {
 
 router.get('/favorites', async (req, res) => {
   if (req.session.logged_in) {
-    const favoriteData = await User.findOne( {where: {id: req.session.user_id}, include: {
-      model: Bottle,
-    through: FavoriteBottle  }})
-    const user = favoriteData.get({plain:true})
+    const favoriteData = await User.findOne({
+      where: { id: req.session.user_id }, include: {
+        model: Bottle,
+        through: FavoriteBottle
+      }
+    })
+    const user = favoriteData.get({ plain: true })
 
-    res.render('favorites', { 
+    res.render('favorites', {
       bottles: user.bottles,
-      layout: 'showcase' 
+      layout: 'showcase'
     });
     return;
   }
-  res.render('login');
+  // res.render('login');
 })
 
 router.get('/profile', (req, res) => {
   console.log(req.session)
   if (req.session.logged_in) {
-    res.render('profile', { layout: 'profile', isLoggedIn: req.session.logged_in } );
+    res.render('profile', { layout: 'profile', isLoggedIn: req.session.logged_in });
     return;
   }
-  res.render('login');
+  // res.render('login');
 })
 
 module.exports = router;

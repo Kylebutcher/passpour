@@ -1,9 +1,9 @@
-body {
-    background-color: #fefefe;
+:root {
+    background-image: url(../img/thomas-thompson-BoVxWyS5KAE-unsplash.jpg);
+    font-family: Arial, Helvetica, sans-serif
 }
 
 header {
-    position: relative;
     background-color: #451e05;
     padding: 10px;
     border-radius: 5px;
@@ -19,7 +19,7 @@ nav {
     margin: 3px;
 }
 
-a{
+a {
     text-decoration: none;
     font-size: larger;
     color: #ffffff;
@@ -27,7 +27,7 @@ a{
     padding: 3px;
     background-color: #31c5ff;
     border-radius: 5px;
-  }
+}
 
 #logo {
     max-width: 20%;
@@ -40,140 +40,77 @@ a{
     right: 40px;
 }
 
-button {
-    float: inline-end;
+.forms {
+    display: flex;
+    flex-direction: row;
 }
 
-.container_2 {
-    width: 300px;
-    float: left;
-    padding: 30px;
-    border: 2px solid #F0ba34;
-    box-sizing: border-box;
-    border-radius: 10px;
-    margin: 20px;
-}
-
-.pours {
+#signUp {
     display: flex;
     flex-direction: column;
 }
 
-.pours button {
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 10px;
-    font-size: 16px;
-    background-color: #D07725;
-    color: #0c0c0c;
+#signIn {
+    display: flex;
+    flex-direction: column;
 }
 
-.container_3 {
-    width: 800px;
-    float: right;
-    padding-top: 5px;
-    padding-right: 30px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    border: 2px solid #451e05;
-    box-sizing: border-box;
-    border-radius: 10px;
+.container_1 {
+    color: #ffffff;
+    /* float: left; */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: fit-content;
+    padding: 30px;
     margin: 20px;
-}
-
-.container_4 {
-    width: 800px;
-    float: right;
-    padding-top: 5px;
-    padding-right: 30px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    border: 2px solid #451e05;
-    box-sizing: border-box;
     border-radius: 10px;
-    margin: 20px;
+    flex-direction: column;
+    /* border: 2px solid #F0ba34; */
 }
 
-.container_5 {
-    width: 800px;
-    float: right;
-    padding-top: 5px;
-    padding-right: 30px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    border: 2px solid #451e05;
+.container_2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: #ffffff;
+    max-width: 50%;
+    /* float: right; */
+    padding: 30px;
+    /* border: 2px solid #F0ba34; */
     box-sizing: border-box;
     border-radius: 10px;
     margin: 20px;
 }
 
 button {
-    background-color: #F0ba34;
-    color: #120404;
+    text-decoration: none;
+    font-size: larger;
+    color: #ffffff;
+    /* margin: 3px; */
+    padding: 3px;
+    background-color: #31c5ff;
     border-radius: 5px;
 }
 
-.title {
-    font-size: 20px;
-    color: #5b5d52;
-}
-
-.diamond-container {
-    width: 60px;
-    height: 60px;
-    background-color: #D07725;
-    position: relative;
-    transform: rotate(45deg);
-
-}
-
-.circle-container {
-    width: 100px;
-    height: 100px;
-    background-color: #D07725;
-    border-radius: 50%;
-    /* Makes the container circular */
-}
-
-
-
 footer {
-    border: 2px solid #F0ba34;
+    color: #ffffff;
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: #ccc;
     padding: 10px;
-    text-align: center;    
-}
-/* -------------------- Media queries -------------> */
-
-@media screen and (max-width: 1150px) {
-    body {
-        display: flex;
-        /* flex-direction: column; */
-        flex-wrap:wrap;
-        }
-
-    div.container_2 {
-        display: flex; 
-        flex-direction: column;
-        flex-wrap: wrap;
-
-    }
+    text-align: center;
 }
 
-@media screen and (max-width: 850px) {
-    body {
+@media screen {
+    nav {
         display: flex;
-        flex-direction: column;
         flex-wrap: wrap;
     }
 
-    div.container_2 {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
+    #logo {
+        min-width: 25%;
+        min-height: 25%;
     }
 
 }
