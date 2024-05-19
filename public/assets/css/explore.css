@@ -88,11 +88,11 @@ nav{
   display: inline-block;
 }
 
-.myButton:hover {
+.showcase-btn:hover {
   background: #FF8D26; 
 }
 
-.myButton:active {
+.showcase-btn:active {
 background: #e2df0b; 
 }
 
@@ -102,8 +102,8 @@ background: #e2df0b;
 /* Modal pop up of the Bottle object to add details of thier entry*/
 #bottlemodal {
   background-color: var(--whiskey-orange);
-  height: 200px;
-  width: 100px;
+  height: 600px;
+  width: 500px;
   position: absolute;
   display: block;
   top: 0;
