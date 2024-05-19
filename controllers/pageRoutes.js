@@ -55,11 +55,17 @@ router.get('/', async (req, res) => {
       bottle.get({ plain: true })
     );
 
+<<<<<<< HEAD
     res.render('homepage', {
       // accolades,
 
       // bottles,
       logged_in: req.session.logged_in
+=======
+  res.render('login', {
+    layout: 'profile',
+    logged_in: req.session.logged_in
+>>>>>>> main
 
     });
 
@@ -74,7 +80,7 @@ router.get('/explore', async (req, res) => {
   const bottles = bottleData.map(bottle => bottle.get({ plain: true }))
   res.render('explore', {
     bottles,
-    layout: 'showcase'
+    layout: 'profile'
   });
 })
 
@@ -103,8 +109,6 @@ router.get('/explore', async (req, res) => {
 //     res.status(500).json(err);
 //   }
 // });
-
-
 
 // Use withAuth middleware to prevent access to route
 
@@ -162,7 +166,7 @@ router.get('/favorites', async (req, res) => {
     });
     return;
   }
-  res.render('login');
+  // res.render('login');
 })
 
 //profile route
@@ -172,7 +176,7 @@ router.get('/profile', (req, res) => {
     res.render('profile', { layout: 'profile', isLoggedIn: req.session.logged_in });
     return;
   }
-  res.render('login');
+  // res.render('login');
 })
 
 module.exports = router;

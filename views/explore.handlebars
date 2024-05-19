@@ -1,25 +1,71 @@
-<header>
-  <nav class="nav-bar">
-    <a href="">Home</a>
-    <a href="">Bucket List</a>
-    <a href="">About</a>
-    <a href="">Logout</a>
-  </nav>
-</header>
+
 <main>
-  <h1>Explore</h1>
-  <!-- Row 1 -->
+   
+  <div class="woodbox-title-container">
+    <h1>Explore & Find New Whiskey!</h1>
+  </div>
+  
+  
+  {{!-- This is the where the bottle cards will appear for the user to review any that were to be of interest. --}}
+
   <div class="container text-center">
-    <div class="row align-items-start clearfix cubbies">
+    <div class="row align-items-start cubbies">
       {{#each bottles as |bottle|}}
       <div class="col-3 text-white">
         <h2>{{whiskey_name}}</h2>
         <h3>{{whiskey_type}}</h3>
+
+        {{!-- This button will add the bottle to favoriteBottle to the showcase page. On press, the website will open a modal to add a 2 fields for the User to add to their favorite bottle in the showcase.  --}}
+        <button type="button" class="btn-primary showcasebtn onclick-disable"
+        href="../views/favorites.handlebars"
+        target="bottlemodal"
+        onclick="+"
+          <i></i> Add To Showcase
+        >Add To Showcase</button>
+
+        <!-- The Modal -->
+        <div id="bottlemodal" class="modal fade target" data-bs-backdrop="staticBackdrop" tabindex="-1">
+    
+          <!-- Modal content -->
+          <div class="modal-content">
+            <form class="details-form" action="/ save" method="post">
+
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLable">Would you like to add a few Personal Notes to your bottle?</h1>
+
+                {{!-- This button is the Close Window "X" in the top right corner --}}
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+
+              <div class="modal-body">
+                <div class="mb-3">
+                  <lable class="order-notes">How do you like your bottle Ordered?</lable>
+                  <select class="order-form">
+                    <option>Neat</option>
+                    <option>On The Rocks</option>
+                    <option>Mixed Drink</option>
+                  </select>
+
+                  <lable class="taste-notes">What are some taste notes that you detect?</lable>
+                  <input type="text" class="tastenote-notes">
+                </div>
+              </div>
+
+              <div class="modal-footer">
+                <button id="add-as-is" type="button" class="btn btn-secondary" data-bs-dismiss="modal">No Thanks, Add to Showcase.</button>
+
+                <button id="add-notes" type="submit" class="btn btn-primary">Add Notes!</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
       </div>
       {{/each}}
     </div>
   </div>
 </main>
-<footer>
-  <p> A Group 2 Production</p>
-</footer>
+
+<script type="text/javascript" src="assets/js/explore.js"></script>
+
+
