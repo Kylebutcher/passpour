@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/profile.css">
-    <title>Document</title>
+    <title>Profile</title>
 </head>
 <body>
     <header>
         <img src="../../assets/img/passpourlogoSkinny.png" id="logo" alt="PassPour logo">
         <nav>
-            <a href="">About</a>
+            <a href="./bucketList.html">Bucket</a>
             <a href="./showcase.html">Showcase</a>
             <a href="">Badges</a>
-            <a href="./bucketList.html">Bucket</a>
         </nav>
         <a href="../../index.html">
             <button id="logout" >logout</button>
@@ -23,11 +22,16 @@
     <main>
         <div class="container_2">
             <h1>My Profile</h1>
-            <ul class="pours">
-                <button>Add ProfilePic</button>
-                <button>About Me</button>
-            </ul>
+                <div id="profile-pic-container">
+                 <img id="profile-pic" alt="Profile Picture">
+                <button id="delete-btn">Delete</button>
+                </div>
+            <input type="file" id="file-input" accept="image/*" style="display:none;">
+            <button id="add-pic-btn">Add Profile Pic</button>
         </div>
+
+       
+    
 
         <div class="container_3">
             <ul  id="header">
@@ -62,7 +66,7 @@
 
     </main>
     <footer class="container_6">Made w/ Love!</footer>
-    <script src="../js/homepage.js"></script>
+    <script src="../js/profile.js"></script>
 </body>
 
 </html>
