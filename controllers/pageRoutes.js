@@ -51,21 +51,13 @@ router.get('/', async (req, res) => {
   //     ],
   //   });
 
-    const bottles = bottleData.map((bottle) =>
-      bottle.get({ plain: true })
-    );
+    // const bottles = bottleData.map((bottle) =>
+    //   bottle.get({ plain: true })
+    // );
 
-<<<<<<< HEAD
-    res.render('homepage', {
-      // accolades,
-
-      // bottles,
-      logged_in: req.session.logged_in
-=======
   res.render('login', {
     layout: 'profile',
     logged_in: req.session.logged_in
->>>>>>> main
 
     });
 
@@ -73,7 +65,7 @@ router.get('/', async (req, res) => {
     //   res.status(500).json(err);
     // }  
   });
-
+ 
 //Explore route
 router.get('/explore', async (req, res) => {
   const bottleData = await Bottle.findAll()
@@ -91,7 +83,7 @@ router.get('/explore', async (req, res) => {
 //       include: [
 //         {
 //           model: User,
-//           attributes: [
+//           attributes: [ 
 //             'category',
 //             'badge',
 //           ],
