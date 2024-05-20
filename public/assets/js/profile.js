@@ -46,7 +46,7 @@ function displayPost() {
     const divContainerElement = $('<div class="bucket-container" style="display: flex; flex-wrap: wrap;">');
 
     // Define an array of colors
-    const colors = ['#FFB6C1', '#ADD8E6', '#90EE90', '#FFFFE0', '#FFA07A'];
+    const colors = ['#D07725', '#F0ba34', '#451e05', '#ff8d26', '#d5dbe9'];
 
     // Limit the number of items to display to 5
     const limit = 5;
