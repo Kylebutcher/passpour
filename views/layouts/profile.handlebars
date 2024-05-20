@@ -1,3 +1,7 @@
+{{!-- This file should be named: explore.handlebars --}}
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +13,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
 
   {{!-- Custom CSS --}}
-  <link rel="stylesheet" href="/assets/css/homepage.css">
+  {{!-- <link rel="stylesheet" href="/assets/css/homepage.css"> --}}
   <link rel="stylesheet" href="/assets/css/explore.css">
   <title>PassPour</title>
 </head>
@@ -20,6 +24,7 @@
     <nav>
       {{!-- <a href="">About</a> --}}
       <a href="/favorites">Showcase</a>
+
       <a href="">Badges</a>
       <a href="/assets/html/bucketList.html">Bucket List</a>
     </nav>
@@ -38,6 +43,7 @@
   {{!-- {{#if logged_in}}
   <script type="text/javascript" src="/js/logout.js"></script>
   {{/if}} --}}
+
   <script type="text/javascript" src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
   <script type="text/javascript" src="assets/js/sockets.js"></script>
 </body>

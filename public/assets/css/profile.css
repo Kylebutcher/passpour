@@ -140,14 +140,26 @@ button {
     color: #5b5d52;
 }
 
-.diamond-container {
-    width: 60px;
-    height: 60px;
-    background-color: #D07725;
-    position: relative;
-    /* transform: rotate(45deg); */
-
+.bucket-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Optional: Adds space between items */
 }
+
+.bucket-item {
+    border: 2px solid black;
+    padding: 10px;
+    margin: 5px;
+    background-color: #fff; /* Default color if not set in JavaScript */
+    flex: 1 1 200px; /* Adjusts the flex-grow, flex-shrink, and flex-basis properties */
+    max-width: 200px;
+    height: 100px;
+    box-sizing: border-box;
+}
+
+
+
+
 
 .circle-container {
     width: 100px;
