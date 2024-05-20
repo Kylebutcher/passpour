@@ -1,5 +1,4 @@
 :root {
-    background-image: url(../img/thomas-thompson-BoVxWyS5KAE-unsplash.jpg);
     font-family: Arial, Helvetica, sans-serif
 }
 
@@ -40,6 +39,11 @@ a {
     right: 40px;
 }
 
+body{
+    background-image: url(../img/thomas-thompson-BoVxWyS5KAE-unsplash.jpg);
+
+}
+
 .forms {
     display: flex;
     flex-direction: row;
@@ -57,7 +61,6 @@ a {
 
 .container_1 {
     color: #ffffff;
-    /* float: left; */
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -66,7 +69,6 @@ a {
     margin: 20px;
     border-radius: 10px;
     flex-direction: column;
-    /* border: 2px solid #F0ba34; */
 }
 
 .container_2 {
@@ -75,9 +77,7 @@ a {
     align-items: flex-start;
     color: #ffffff;
     max-width: 50%;
-    /* float: right; */
     padding: 30px;
-    /* border: 2px solid #F0ba34; */
     box-sizing: border-box;
     border-radius: 10px;
     margin: 20px;
@@ -87,7 +87,6 @@ button {
     text-decoration: none;
     font-size: larger;
     color: #ffffff;
-    /* margin: 3px; */
     padding: 3px;
     background-color: #31c5ff;
     border-radius: 5px;

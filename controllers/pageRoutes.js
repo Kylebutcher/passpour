@@ -51,21 +51,38 @@ router.get('/', async (req, res) => {
   //     ],
   //   });
 
-    // const bottles = bottleData.map((bottle) =>
-    //   bottle.get({ plain: true })
-    // );
+  // const bottles = bottleData.map((bottle) =>
+  //   bottle.get({ plain: true })
+  // );
 
   res.render('login', {
-    layout: 'profile',
+    layout: 'login',
     logged_in: req.session.logged_in
 
-    });
-
-    // } catch (err) {
-    //   res.status(500).json(err);
-    // }  
   });
- 
+
+  // } catch (err) {
+  //   res.status(500).json(err);
+  // }  
+});
+
+//showcase route
+// router.get('/showcase', (req, res) => {
+//   res.render('login', {
+//     layout: 'showcase',
+//     logged_in: req.session.logged_in
+//   })
+// });
+
+//bucket list route
+// router.get('/bucketList', (req, res) => {
+//   res.render('login', {
+//     layout: 'login',
+//     logged_in: req.session.logged_in
+//   })
+// });
+
+
 //Explore route
 router.get('/explore', async (req, res) => {
   const bottleData = await Bottle.findAll()
