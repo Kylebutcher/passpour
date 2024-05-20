@@ -19,11 +19,13 @@
     <img src="/assets/img/passpourlogoSkinny.png" id="logo" alt="PassPour logo">
     <nav>
       {{!-- <a href="">About</a> --}}
-      <a href="../favorites.handlebars">Showcase</a>
+      <a href="/favorites">Showcase</a>
       <a href="">Badges</a>
-      <a href="../../public/assets/html/bucketList.html">Bucket List</a>
+      <a href="/assets/html/bucketList.html">Bucket List</a>
     </nav>
-    {{!-- <button id="logout">logout</button> --}}
+    {{#if logged_in}}
+    <button id="logout">logout</button>
+    {{/if}}
     {{!-- </a> --}}
   </header>
 
@@ -33,8 +35,9 @@
 
 
   <footer class="container_6">Made by The Four Oh! Fours</footer>
-  <script src="/assets/js/homepage.js"></script>
-
+  {{!-- {{#if logged_in}}
+  <script type="text/javascript" src="/js/logout.js"></script>
+  {{/if}} --}}
   <script type="text/javascript" src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
   <script type="text/javascript" src="assets/js/sockets.js"></script>
 </body>

@@ -1,5 +1,6 @@
 const logout = async () => {
-  const response = await fetch('/api/user/logout', { //unsure about the routing here.
+  // e.preventDefault()
+  const response = await fetch('/api/users/logout', { //unsure about the routing here.
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
   });
@@ -11,6 +12,5 @@ const logout = async () => {
   }
 };
 
-sessionStorage.setItem('activeSession', 'false');
-
+// sessionStorage.setItem('activeSession', 'false');
 document.querySelector('#logout').addEventListener('click', logout);

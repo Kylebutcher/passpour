@@ -25,10 +25,10 @@ router.post('/', async (req, res) => {
 
     console.log(userData)
     req.session.save(() => {
-      req.session.logged_in = true;
       req.session.user_id = userData.id
+      req.session.logged_in = true;
 
-      res.status(200).json({ ok: true });
+      res.status(200).json({ userData });
     })
 
   } catch (err) {
@@ -63,8 +63,8 @@ router.post('/login', async (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.logged_in = true;
       req.session.user_id = userData.id
+      req.session.logged_in = true;
 
       res.status(200).json({ user: userData, message: 'You are now logged in!' });
     });
@@ -78,17 +78,19 @@ router.post('/login', async (req, res) => {
 
 // If a POST request is made to /api/users/logout, the function checks the logged_in state in the request.session object and destroys that session if logged_in is true.
 
-router.post('/logout', (req, res) => {
-  if (req.session.logged_in) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-  }
-})
-
-
+// router.post('/logout', (req, res) => {
+//   if(req.session) {
+//     req.session.destroy(err => {
+//       if (err) {
+//         res.status(400).send('Unable to log you out')
+//       } else {
+//         res.send('Logout successful')
+//       }
+//     });
+//   } else {
+//     res.end()
+//   }
+// })
 
 // PUT Update User based on id
 router.put('/users/:id', (req, res) => {
@@ -133,12 +135,15 @@ router.delete('/users/:id', async (req, res) => {
 
 // Logout the user
 router.post('/logout', (req, res) => {
-  if (req.session.loggedIn) {
+  console.log('click');
+  if (req.session.logged_in) {
     req.session.destroy(() => {
+      console.log('logged out');
       res.status(204).end();
     });
   } else {
     res.status(404).end();
+    console.log('error');
   }
 });
 
