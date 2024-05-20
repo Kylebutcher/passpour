@@ -26,14 +26,21 @@ Accolade.belongsToMany(User, {
   as: 'accolade_user'
 });
 
+// FavoriteBottle.hasMany(User, {
+//   foreignKey: 'user_id', 
+//   onDelete: 'CASCADE'
+// })
+
 User.belongsToMany(Bottle, {
   through: FavoriteBottle,
-  foreignKey: 'user_id'
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE'
 });
 
 Bottle.belongsToMany(User, {
   through: FavoriteBottle,
-  foreignKey: 'bottle_id'
+  foreignKey: 'bottle_id',
+  onDelete: 'SET CASCADE'
 });
 
 // Bottle.belongsTo(User, {
