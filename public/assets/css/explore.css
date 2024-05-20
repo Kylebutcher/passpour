@@ -17,15 +17,6 @@
   background-repeat: repeat-y;
 }
 
-a {
-  text-decoration: none;
-  font-size: larger;
-  color: #ffffff;
-  margin: 3px;
-  padding: 3px;
-  background-color: #31c5ff;
-  border-radius: 5px;
-}
 
 .header-explore{
   background-color: #451e05;
@@ -34,27 +25,7 @@ a {
   border: 3px solid var(--sky-blue);
 }
 
-nav{
-  float: right;
-  display: flex;
-  flex-direction: row;
-  width: 30%;
-  justify-content: space-between;
-  padding: 5px;
-  margin: 3px;
-}
 
-#logo {
-  max-width: 20%;
-  max-height: 20%;
-}
-
-
-/* #logout {
-  position: absolute;
-  top: 80px;
-  right: 40px;
-} */
 
 /* This is the wood backround that displays the title of the page: "Explore & Find New Whiskies!" */
 .woodbox-title-container {
@@ -70,6 +41,7 @@ nav{
   margin-left: auto;
   margin-right: auto;
 }
+
 
 /* Add to showcase button */
 .showcase-btn {
@@ -100,7 +72,7 @@ nav{
 background: #e2df0b; 
 }
 
-
+/* This the the bottle card appended to the site */
 .drinkCard {
   background-color: var(--background-brown);
   color: var(--whiskey-orange);
@@ -129,42 +101,5 @@ background: #e2df0b;
 }
 
 
-footer {
-  color: #ffffff;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  padding: 10px;
-  text-align: center;
-}
-
-@media screen {
-  nav {
-      display: flex;
-      flex-wrap: wrap;
-  }
-
-  #logo {
-      min-width: 25%;
-      min-height: 25%;
-  }
-
-}
-
-
-/* Default styles for all devices */
-/* Media query for tablets and larger screens */
-
-@media screen and (min-width: 768px) {
-  /* Styles for tablets and larger screens */
-}
-
-
-
-
-/* Media query for mobile devices */
-@media screen and (max-width: 767px) {
-  /* Styles for mobile devices */
-}
 
 
