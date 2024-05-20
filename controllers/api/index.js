@@ -4,6 +4,7 @@ const router = require('express').Router();
 const usersRoutes = require('./userRoutes');
 const accoladeRoutes = require('./accoladeRoutes');
 const bottleRoutes = require('./bottleRoutes');
+const showcaseRoutes = require('./showcaseRoutes');
 
 // const testRoutes = require('../../controllers/');
 
@@ -12,11 +13,12 @@ const bottleRoutes = require('./bottleRoutes');
 router.use('/users', usersRoutes);
 router.use('/accolades', accoladeRoutes);
 router.use('/bottles', bottleRoutes);
+router.use('/showcase', showcaseRoutes);
+
+
 
 //Socket Testing
 // router.use('/test', testRoutes)
-
-// TODO catch all 
 
 // copy pasted this below from the test.controller.js file and deleted that file
 // const router = require("express").Router()

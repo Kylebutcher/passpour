@@ -1,7 +1,7 @@
 
 <main>
    
-  <div class="woodbox-title-container">
+  <div class="woodbox-title-container mb-5">
     <h1>Explore & Find New Whiskey!</h1>
   </div>
   
@@ -15,12 +15,12 @@
 
         {{!-- This button will add the bottle to favoriteBottle to the showcase page. On press, the website will open a modal to add a 2 fields for the User to add to their favorite bottle in the showcase.  --}}
 
-        <div class="col-3 text-white">
-          <h2>{{whiskey_name}}</h2>
+        <div class="col-3 drinkCard">
+          <h2 class="bottleName" id="{{id}}">{{whiskey_name}}</h2>
           <h3>{{whiskey_type}}</h3>
 
           <div class="text-center mb-5">
-            <button class="showcase-btn" data-bs-toggle="modal" data-bs-target="#formModal" 
+            <button class="showcase-btn showcase" id="{{id}}"  data-bs-toggle="modal" data-bs-target="#formModal" 
             href="../views/favorites.handlebars"
             target="bottlemodal">Add To Showcase</button>
           </div>
@@ -39,24 +39,24 @@
                       <div class="form-group col">
                         <label for="title">How do you like your Whiskey?</label>
                         <select class="order-form">
-                          <option>Neat</option>
-                          <option>On The Rocks</option>
-                          <option>Mixed Drink</option>
+                          <option value="1">Neat</option>
+                          <option value="2">On The Rocks</option>
+                          <option value="3">Mixed Drink</option>
                         </select>
                       </div>
                     </div>
 
                     <div class="form-group p-2">
                       <label for="textarea">What are some taste notes that you detect?</label>
-                      <textarea class="form-control" id="textarea" rows="3" placeholder="Example: Smokey with some fruity after-tastes"></textarea>
+                      <textarea class="form-control taste" id="tasteNotes" rows="3" placeholder="Example: Smokey with some fruity after-tastes"></textarea>
                     </div>
                   </form>
-                  <button id="add-as-is" type="submit" class="showcase-btn">No Thanks, Add to Showcase.</button>
-                  <button id="add-notes" type="submit" class="showcase-btn">Add Notes!</button>
                 </div>
                 
                 <div class="modal-footer">
-                  {{!-- On lines 54 & 55 the button elements dont want to appear in the modal footer, but will appear in the modal body. The funcationality of those buttons are correct - it just didnt want to work in this location.  --}}
+                  <div class="confirmation"></div>
+                  <button id="{{id}}" type="submit" class="showcase-btn add-as-is">No Thanks, Add to Showcase.</button>
+                  <button id="{{id}}" type="submit" class="showcase-btn add-notes">Add Notes!</button>
                 </div>
               </div>
             </div>
@@ -68,6 +68,12 @@
 </main>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="assets/js/explore.js"></script>
+
+<!-- Bootstrap Script Tag -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="/assets/js/explore.js"></script>
 
 

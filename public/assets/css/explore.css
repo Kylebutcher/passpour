@@ -102,21 +102,28 @@ background: #e2df0b;
 }
 
 
+.drinkCard {
+  background-color: var(--background-brown);
+  color: var(--whiskey-orange);
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
 
 
 /* Modal pop up of the Bottle object to add details of thier entry*/
-#bottlemodal {
+#formModal {
   background-color: var(--whiskey-orange);
-  height: 600px;
+  height: 385px;
   width: 500px;
-  position: absolute;
-  display: block;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
   margin: auto;
   border: 3px var(--background-brown);
+  color: var(--background-brown);
 }
 
 

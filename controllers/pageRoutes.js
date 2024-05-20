@@ -88,6 +88,7 @@ router.get('/', async (req, res) => {
 router.get('/explore', async (req, res) => {
   const bottleData = await Bottle.findAll()
   const bottles = bottleData.map(bottle => bottle.get({ plain: true }))
+  console.log(bottleData)
   res.render('explore', {
     bottles,
     layout: 'profile'
