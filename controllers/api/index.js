@@ -5,6 +5,7 @@ const usersRoutes = require('./userRoutes');
 // const accoladeRoutes = require('./accoladeRoutes'); Scrapped
 const bottleRoutes = require('./bottleRoutes');
 const showcaseRoutes = require('./showcaseRoutes');
+const seedRoutes = require("./seedRoutes")
 
 // const testRoutes = require('../../controllers/');
 
@@ -14,6 +15,7 @@ router.use('/users', usersRoutes);
 // router.use('/accolades', accoladeRoutes); // Scrapped
 router.use('/bottles', bottleRoutes);
 router.use('/showcase', showcaseRoutes);
+router.use("/seed", seedRoutes)
 
 
 
