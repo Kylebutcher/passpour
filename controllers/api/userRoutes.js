@@ -43,34 +43,50 @@ router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({
       where:
-        { email: req.body.email }
+      { email: req.body.email }
     });
-
+    
     if (!userData) {
       res
-        .status(400)
-        .json({ message: 'Incorrect email, please review your email and try again' });
+      .status(400)
+      .json({ message: 'Incorrect email, please review your email and try again' });
       return;
     }
-
+    
     const validPassword = await userData.checkPassword(req.body.password);
-
+    
     if (!validPassword) {
       res
-        .status(400)
-        .json({ message: 'Incorrect password, please review and try again.' });
+      .status(400)
+      .json({ message: 'Incorrect password, please review and try again.' });
       return;
     }
-
+    
     req.session.save(() => {
       req.session.user_id = userData.id
       req.session.logged_in = true;
-
+      
       res.status(200).json({ user: userData, message: 'You are now logged in!' });
     });
   } catch (err) {
     console.log(err)
     res.status(400).json(err);
+  }
+});
+
+
+
+// Logout the user
+router.post('/logout', (req, res) => {
+  console.log('click');
+  if (req.session.logged_in) {
+    req.session.destroy(() => {
+      console.log('logged out');
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+    console.log('error');
   }
 });
 
@@ -92,31 +108,38 @@ router.post('/login', async (req, res) => {
 //   }
 // })
 
+
 // PUT Update User based on id
-router.put('/users/:id', (req, res) => {
-  User.update(
-    {
-      // these are the fields that can be edited
-      region: req.body.region
-    },
-  )
-    .then((updateUser) => {
-      // sends the updated bottle as a json response
-      res.json(updateUser);
-    })
-    .catch((err) => res.json(err));
-});
+router.put('/:id', async (req, res) => {
+  try {
+    const updateUser = await User.update(
+      { // these are the fields that can be edited (becuase I am a scoundral)
+        region: req.body.region
+      }, {
+        where: {
+          id: req.params.id,
+        }, individualHooks: true
+      }
+    )
+    if (!updateUser) {
+      res.status(404).json({ message:'No user was found with this id.' });
+      return;
+    }
+    res.status(200).json({ status: "Success! User has been updated", result: updateUser })
+
+    } catch(err) {
+      res.status(404).json({ message: err.message });
+    }
+  });
 
 
 
 // A user that no longer wants to be a part of our site
-router.delete('/users/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const userData = await User.destroy({
       where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
-      },
+        id: req.params.id}
     });
 
     if (!userData) {
@@ -127,25 +150,13 @@ router.delete('/users/:id', async (req, res) => {
     res.status(200).json(userData);
   } catch (err) {
     res.status(500).json({
-      message: "userRoutes in api line 120",
+      message: "userRoutes in api line 137",
     });
-    return;
   }
 });
 
-// Logout the user
-router.post('/logout', (req, res) => {
-  console.log('click');
-  if (req.session.logged_in) {
-    req.session.destroy(() => {
-      console.log('logged out');
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-    console.log('error');
-  }
-});
+
+
 
 
 module.exports = router;

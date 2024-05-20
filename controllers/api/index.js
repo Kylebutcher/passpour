@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 // Import the routes. This is how we make our routes modular.
 const usersRoutes = require('./userRoutes');
-const accoladeRoutes = require('./accoladeRoutes');
+// const accoladeRoutes = require('./accoladeRoutes'); Scrapped
 const bottleRoutes = require('./bottleRoutes');
 const showcaseRoutes = require('./showcaseRoutes');
 
@@ -11,7 +11,7 @@ const showcaseRoutes = require('./showcaseRoutes');
 //Database / Models
 // router.use()
 router.use('/users', usersRoutes);
-router.use('/accolades', accoladeRoutes);
+// router.use('/accolades', accoladeRoutes); // Scrapped
 router.use('/bottles', bottleRoutes);
 router.use('/showcase', showcaseRoutes);
 
