@@ -102,7 +102,12 @@ app.use('/', routes);
 //   return res.render("chat")
 // })
 
-
+// catch-all
+app.get('*', (req, res) =>
+  res.status(404).send(
+    `Sorry, bar's closed`
+  )
+);
 
 sequelize.sync({ force: false }).then(() => {
   server.listen(PORT, () => console.log(`Now listening at http://localhost:${PORT}`));
