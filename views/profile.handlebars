@@ -1,41 +1,43 @@
-<main>
-    <div class="container_2">
-        <h1>My Profile</h1>
-        <ul class="pours">
-            <button>Add ProfilePic</button>
-            <button>About Me</button>
-        </ul>
+<main class="profile-main row">
+    <div class="col-6">
+        <div class="container_2">
+            <h1>My Profile</h1>
+            <ul class="pours">
+                <button>Add ProfilePic</button>
+            </ul>
+        </div>
     </div>
 
-    <div class="container_3">
-        <ul id="header">
-            <a href="../public/assets/html/bucketList.html">
-                <button>Show All</button>
-            </a>
-        </ul>
-        <h1 class="title">Bucket List:</h1>
-        <div class="diamond-container"></div>
+    <div class="col-6">
+        <div class="row container_3">
+            <div class="col-7">
+                <h1 class="title">Bucket List:</h1>
+                <div class="diamond-container"></div>
+            </div>
+
+            
+            <ul class='col-5' id="header">
+                <a style='background-color: transparent' href="/assets/html/bucketList.html">
+                    <button>Go To</button>
+                </a>
+            </ul>
+        </div>
+    
+        <div class="row container_5">
+            <div class="col-7">
+                <h1 class="title">The Showcase:</h1>
+                <div class="diamond-container"></div>
+            </div>
+
+            
+            <ul class='col-5' id="header">
+                <a style='background-color: transparent' href="/showcase">
+                    <button>Go To</button>
+                </a>
+            </ul>
+        </div>
     </div>
-
-    <div class="container_4">
-        <ul id="header">
-            <a href="accolades page">
-                <button>Show All</button>
-            </a>
-        </ul>
-        <h1 class="title">Badge Tracker:</h1>
-        <div class="circle-container"></div>
-    </div>
-
-    <div class="container_5">
-        <ul id="header">
-            <a href="/favorites">
-                <button>Show All</button>
-            </a>
-        </ul>
-        <h1 class="title">The Show Case:</h1>
-        <div class="diamond-container"></div>
-    </div>
-
-
 </main>
+
+
+<script type="text/javascript" src="assets/js/sockets.js"></script>

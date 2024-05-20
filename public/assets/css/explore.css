@@ -8,13 +8,13 @@
 }
 
 
-body {
+.explore-main {
   background-image: url(../../images/barrels-unsplash.jpg);
   background-attachment: scroll;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
-  height: 15rem;
-  background-repeat: no-repeat;
+  height: fit-content;
+  background-repeat: repeat-y;
 }
 
 a {
@@ -27,7 +27,7 @@ a {
   border-radius: 5px;
 }
 
-header{
+.header-explore{
   background-color: #451e05;
   padding: 10px;
   border-radius: 5px;
@@ -50,11 +50,11 @@ nav{
 }
 
 
-#logout {
+/* #logout {
   position: absolute;
   top: 80px;
   right: 40px;
-}
+} */
 
 /* This is the wood backround that displays the title of the page: "Explore & Find New Whiskies!" */
 .woodbox-title-container {
@@ -67,7 +67,6 @@ nav{
   padding: 12px;
   width: 600px;
   border: 5px solid;
-  margin-top: 170px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -102,21 +101,31 @@ background: #e2df0b;
 }
 
 
+.drinkCard {
+  background-color: var(--background-brown);
+  color: var(--whiskey-orange);
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  border: 2px dotted;
+  padding: 0px;
+  align-items: center;
+}
 
 
 /* Modal pop up of the Bottle object to add details of thier entry*/
-#bottlemodal {
+#formModal {
   background-color: var(--whiskey-orange);
-  height: 600px;
+  height: 385px;
   width: 500px;
-  position: absolute;
-  display: block;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
   margin: auto;
   border: 3px var(--background-brown);
+  color: var(--background-brown);
 }
 
 
@@ -141,3 +150,18 @@ footer {
   }
 
 }
+
+
+/* Default styles for all devices */
+/* Media query for tablets and larger screens */
+
+@media screen and (min-width: 768px) {
+  /* Styles for tablets and larger screens */
+}
+
+/* Media query for mobile devices */
+@media screen and (max-width: 767px) {
+  /* Styles for mobile devices */
+}
+
+

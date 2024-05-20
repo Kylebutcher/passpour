@@ -1,5 +1,7 @@
+// pageRoutes are complete, do not touch
+
 const router = require('express').Router();
-const { Accolade, Bottle, User, UserAccolade, FavoriteBottle } = require('../models');
+const { Bottle, User, FavoriteBottle } = require('../models');
 
 
 const path = require("path");
@@ -7,120 +9,18 @@ const path = require("path");
 const withAuth = require('../utils/auth');
 
 
-// Home Page
+// The Explore Page is the only page that all Traffic can see, including non-users. 
 router.get('/', async (req, res) => {
-
-  // let accolades = []
-
-  // try {
-  //   // Get all Accolades and JOIN with User data
-  //   const accoladeData = await Accolade.findAll({
-  //     include: [
-  //       {
-  //         model: Accolade,
-  //         attributes: ['badge'],
-  //       },
-  //     ],
-  //   });
-
-
-
-
-
-  //   router.get('/', (req, res) => {
-  //     res.sendFile(path.join(__dirname, '../../public/html/homepage.html'))
-  //   });
-
-  //   const accolades = accoladeData.map((accolade) =>
-  //     accolade.get({ plain: true })
-  //   );
-
-
-
-
-  //   // Get all Bottles and JOIN with User data
-  //   const bottleData = await Bottle.findAll({
-  //     include: [
-  //       {
-  //         model: Bottle,
-  //         attributes: [
-  //           'whiskey_name',
-  //           'whiskey_type'
-  //         ],
-  //       },
-  //     ],
-  //   });
-
-  // const bottles = bottleData.map((bottle) =>
-  //   bottle.get({ plain: true })
-  // );
-
-  res.render('login', {
-    layout: 'login',
-    logged_in: req.session.logged_in
-
-  });
-
-  // } catch (err) {
-  //   res.status(500).json(err);
-  // }  
-});
-
-//showcase route
-// router.get('/showcase', (req, res) => {
-//   res.render('login', {
-//     layout: 'showcase',
-//     logged_in: req.session.logged_in
-//   })
-// });
-
-//bucket list route
-// router.get('/bucketList', (req, res) => {
-//   res.render('login', {
-//     layout: 'login',
-//     logged_in: req.session.logged_in
-//   })
-// });
-
-
-
-//Explore route
-router.get('/explore', async (req, res) => {
   const bottleData = await Bottle.findAll()
   const bottles = bottleData.map(bottle => bottle.get({ plain: true }))
+  console.log(bottleData)
   res.render('explore', {
     bottles,
-    layout: 'profile'
+    layout: 'main'
   });
-})
+});
 
 
-// router.get('/accolade/:id', async (req, res) => {
-//   try {
-//     const accoladeData = await Accolade.findByPk(req.params.id, {
-//       include: [
-//         {
-//           model: User,
-//           attributes: [ 
-//             'category',
-//             'badge',
-//           ],
-//         },
-//       ],
-//     });
-
-//     const accolade = accoladeData.get({ plain: true });
-
-//     res.render('accolade', {
-//       ...accolade,
-//       logged_in: req.session.logged_in
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
-// Use withAuth middleware to prevent access to route
 
 // router.get('/profile', withAuth, async (req, res) => {
 //   try {
@@ -156,42 +56,54 @@ router.get('/login', (req, res) => {
     res.redirect('/profile');
     return;
   }
-  res.render('login');
+  res.render('login', {
+    layout: 'main'
+  });
 });
 
-//favorites route
-router.get('/favorites', async (req, res) => {
-  if (req.session.logged_in) {
-    const favoriteData = await User.findOne({
-      where: { id: req.session.user_id }, include: {
-        model: Bottle,
-        through: FavoriteBottle
-      }
-    })
-    const user = favoriteData.get({ plain: true })
 
+
+//Showcase route, the user needs to have an account to access unique bottles associated with them
+router.get('/showcase', withAuth, async (req, res) => {
+  const favoriteData = await User.findOne({
+    where: { id: req.session.user_id }, include: {
+      model: Bottle,
+      through: FavoriteBottle
+    }
+  })
+
+  const user = favoriteData.get({ plain: true })
     res.render('favorites', {
       bottles: user.bottles,
-      layout: 'showcase',
-      logged_in: req.session.logged_in
+      layout: 'main',
+      logged_in: true
     });
-    return;
   }
-  // res.render('login');
-})
+)
 
-//profile route
-router.get('/profile', (req, res) => {
+
+
+//profile Route, only users get a profile to use. 
+router.get('/profile', withAuth, async (req, res) => {
   console.log(req.session)
-  if (req.session.logged_in) {
-    res.render('profile', { layout: 'profile'});
-    return;
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude:["password"] }, 
+      include: [{ model: Bottle, 
+        through: FavoriteBottle
+       }]
+    })
+
+    const user = userData.get({ plain: true })
+    res.render('profile', { layout: 'main', 
+      ...user, 
+      logged_in: true,
+    })
+  } catch (err) {
+    res.status(500).json({ status: "Error on pageRoutes > /profile"});
+    console.log(err.message)
   }
-  // res.render('login');
 })
-
-// route to delete cookie session for an authorize user
-
 
 
 module.exports = router;

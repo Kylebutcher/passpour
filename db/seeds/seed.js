@@ -1,8 +1,8 @@
 const sequelize = require('../../config/connection');
-const { User, Accolade, Bottle, FavoriteBottle } = require('../../models');
+const { User, Bottle, FavoriteBottle } = require('../../models');
 
 const userData = require('./user-data.json');
-const accoladeData = require('./accolade-data.json');
+// const accoladeData = require('./accolade-data.json'); Scrapped
 const bottleData = require('./bottle-data.json')
 
 const seedDatabase = async () => {
@@ -18,12 +18,14 @@ const seedDatabase = async () => {
   });
   const users = usersArray.map(user => user.get({plain:true}))
 
-  const accoladesUpdate = accoladeData.map(accolade => {
-    const { id, ...update } = accolade
-    return update
-  })
-  const accoladesArray = await Accolade.bulkCreate(accoladesUpdate)
-  const accolades = accoladesArray.map(accolade => accolade.get({plain:true}))
+  // const accoladesUpdate = accoladeData.map(accolade => {
+  //   const { id, ...update } = accolade
+  //   return update
+  // }) Scrapped
+
+
+  // const accoladesArray = await Accolade.bulkCreate(accoladesUpdate)
+  // const accolades = accoladesArray.map(accolade => accolade.get({plain:true})) Scrapped
 
   let newBottles = []
   for (const bottle of bottleData) {

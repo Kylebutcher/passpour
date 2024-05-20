@@ -44,4 +44,4 @@ Bottle.belongsToMany(User, {
 //   foreignKey: 'author'
 // })
 
-module.exports = { User, Accolade, Bottle, UserAccolade, FavoriteBottle };
+module.exports = { User, Bottle, FavoriteBottle };
