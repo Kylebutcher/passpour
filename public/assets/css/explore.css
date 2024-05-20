@@ -27,7 +27,7 @@ a {
   border-radius: 5px;
 }
 
-header{
+.header-explore{
   background-color: #451e05;
   padding: 10px;
   border-radius: 5px;
@@ -108,6 +108,9 @@ background: #e2df0b;
   display: flex;
   flex-direction: column;
   justify-content: end;
+  border: 2px dotted;
+  padding: 0px;
+  align-items: center;
 }
 
 

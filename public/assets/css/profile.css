@@ -9,15 +9,23 @@ header {
     border-radius: 5px;
 }
 
-a{
+body {
+    background-image: url(../../assets/img/thomas-thompson-BoVxWyS5KAE-unsplash.jpg);
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center;
+    height: 280vh;
+  }
+
+/* a {
     text-decoration: none;
     font-size: larger;
     color: #ffffff;
     /* margin: 3px; */
     /* padding: 3px; */
-    background-color: #31c5ff;
-    border-radius: 5px;
-  }
+    /* background-color: #31c5ff;
+    border-radius: 5px; */
+/* } */
 
 nav{
     float: right;
@@ -27,9 +35,7 @@ nav{
     justify-content: space-between;
     padding: 5px;
     margin: 3px;
-    /* justify-content: space-between; */
-
-  }
+}
 
 #logo {
     max-width: 20%;
@@ -52,12 +58,14 @@ nav{
     margin: 20px;
     text-align: center;
 }
+
 #profile-pic-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
 }
+
 #profile-pic {
     display: none;
     width: 150px;
@@ -66,6 +74,7 @@ nav{
     border-radius: 50%;
     margin-bottom: 10px;
 }
+
 #delete-btn {
     display: none;
     background-color: red;
@@ -75,7 +84,6 @@ nav{
     border-radius: 5px;
     cursor: pointer;
 }
-
 
 .pours {
     display: flex;
@@ -139,7 +147,8 @@ button {
 
 .title {
     font-size: 20px;
-    color: #5b5d52;
+    color: var(--whiskey-orange);
+    font-weight: 700;
 }
 
 .bucket-container {
@@ -160,15 +169,12 @@ button {
 }
 
 
-
-
-
+/* Makes the container circular */
 .circle-container {
     width: 100px;
     height: 100px;
     background-color: #D07725;
     border-radius: 50%;
-    /* Makes the container circular */
 }
 
 footer {

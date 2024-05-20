@@ -3,7 +3,7 @@
   font-family:Arial, Helvetica, sans-serif
 }
 
-a{
+a {
   text-decoration: none;
   font-size: larger;
   color: #ffffff;
@@ -13,13 +13,13 @@ a{
   border-radius: 5px;
 }
 
-header{
+header {
   background-color: #451e05;
   padding: 10px;
   border-radius: 5px;
 }
 
-nav{
+nav {
   float: right;
   display: flex;
   flex-direction: row;
@@ -29,7 +29,7 @@ nav{
   margin: 3px;
 }
 
-#logo{
+#logo {
   max-width: 20%;
   max-height: 20%;
 }
@@ -40,17 +40,17 @@ nav{
   right: 40px;
 }
 
-body{
+body {
   color: #ffffff;
 }
 
-form{
+form {
   max-width: 50%;
   display: flex;
   flex-direction: column;
 }
 
-#submit{
+#submit {
   max-width: 80px;
   background-color: #31c5ff;
   color: #ffffff;
@@ -60,13 +60,13 @@ form{
   margin-left: 10px;
 }
 
-input, textarea{
+input, textarea {
   padding: 5px;
   margin: .5rem;
   border-radius: 5px;
 }
 
-footer{
+footer {
   display: flex;
   justify-content: center;
 }
@@ -77,14 +77,14 @@ footer{
     align-items: end;
     justify-content: space-between;
   }
-  header{
+  header {
     font-size: smaller;
   }
-  #logo{
+  #logo {
     min-width: 25%;
     min-height: 25%;
   }
-  form{
+  form {
     max-width: 75%;
   }
 }
@@ -94,11 +94,9 @@ footer{
   flex-direction: row;
   align-items: flex-start; 
   flex-wrap: wrap;
-
 }
 
 .post-it {
-
   /* background-color: yellow; */
   color:black;
   padding: 10px;
@@ -107,8 +105,8 @@ footer{
   border: 1px solid black;
   border-radius: 5px;
   width: 200px; 
-
 }
+
 .post-it p {
   margin: 0; 
   border-bottom: 1px solid black; 
@@ -117,7 +115,6 @@ footer{
 
 
 .delete-btn {
- 
   background-color: #F0ba34;
   color: white;
   border: none;
@@ -125,7 +122,6 @@ footer{
   cursor: pointer;
   border-radius: 3px;
   margin-top: 10px;
- 
 }
 
 .delete-btn:hover {
