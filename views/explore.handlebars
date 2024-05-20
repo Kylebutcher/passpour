@@ -1,25 +1,73 @@
-<header>
-  <nav class="nav-bar">
-    <a href="">Home</a>
-    <a href="">Bucket List</a>
-    <a href="">About</a>
-    <a href="">Logout</a>
-  </nav>
-</header>
+
 <main>
-  <h1>Explore</h1>
-  <!-- Row 1 -->
+   
+  <div class="woodbox-title-container">
+    <h1>Explore & Find New Whiskey!</h1>
+  </div>
+  
+  
+  {{!-- This is the where the bottle cards will appear for the user to review any that were to be of interest. --}}
+
   <div class="container text-center">
-    <div class="row align-items-start clearfix cubbies">
+    <div class="row align-items-start cubbies">
       {{#each bottles as |bottle|}}
-      <div class="col-3 text-white">
-        <h2>{{whiskey_name}}</h2>
-        <h3>{{whiskey_type}}</h3>
-      </div>
-      {{/each}}
+            
+
+        {{!-- This button will add the bottle to favoriteBottle to the showcase page. On press, the website will open a modal to add a 2 fields for the User to add to their favorite bottle in the showcase.  --}}
+
+        <div class="col-3 text-white">
+          <h2>{{whiskey_name}}</h2>
+          <h3>{{whiskey_type}}</h3>
+
+          <div class="text-center mb-5">
+            <button class="showcase-btn" data-bs-toggle="modal" data-bs-target="#formModal" 
+            href="../views/favorites.handlebars"
+            target="bottlemodal">Add To Showcase</button>
+          </div>
+          
+          <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModal" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="bottlemodal">Add Details to Showcase</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                
+                <div class="modal-body">
+                  <form id="task-form">
+                    <div class="row p-2">
+                      <div class="form-group col">
+                        <label for="title">How do you like your Whiskey?</label>
+                        <select class="order-form">
+                          <option>Neat</option>
+                          <option>On The Rocks</option>
+                          <option>Mixed Drink</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="form-group p-2">
+                      <label for="textarea">What are some taste notes that you detect?</label>
+                      <textarea class="form-control" id="textarea" rows="3" placeholder="Example: Smokey with some fruity after-tastes"></textarea>
+                    </div>
+                  </form>
+                  <button id="add-as-is" type="submit" class="showcase-btn">No Thanks, Add to Showcase.</button>
+                  <button id="add-notes" type="submit" class="showcase-btn">Add Notes!</button>
+                </div>
+                
+                <div class="modal-footer">
+                  {{!-- On lines 54 & 55 the button elements dont want to appear in the modal footer, but will appear in the modal body. The funcationality of those buttons are correct - it just didnt want to work in this location.  --}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       {{/each}}
     </div>
   </div>
 </main>
-<footer>
-  <p> A Group 2 Production</p>
-</footer>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="assets/js/explore.js"></script>
+
+
