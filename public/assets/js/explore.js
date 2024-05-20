@@ -107,13 +107,13 @@
 
 
 // Modal Script
-const submitBtn = $('#submitBtn');
-const closeMdl = $('#formModal');
+// const submitBtn = $('#submitBtn');
+// const closeMdl = $('#formModal');
 
-// Event listener for submitting bottle notes to showcase / FavoriteBottle model
-submitBtn.on('click', function(){
-  $(closeMdl).modal('toggle');
-})
+// // Event listener for submitting bottle notes to showcase / FavoriteBottle model
+// submitBtn.on('click', function(){
+//   $(closeMdl).modal('toggle');
+// })
 
 const addNotes = document.querySelector('.add-notes');
 const dontAddNotes = document.querySelector('.add-as-is');

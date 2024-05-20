@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
   console.log(bottleData)
   res.render('explore', {
     bottles,
-    layout: 'profile'
+    layout: 'main'
   });
 });
 
@@ -57,7 +57,7 @@ router.get('/login', (req, res) => {
     return;
   }
   res.render('login', {
-    layout: 'login'
+    layout: 'main'
   });
 });
 
@@ -75,7 +75,7 @@ router.get('/showcase', withAuth, async (req, res) => {
   const user = favoriteData.get({ plain: true })
     res.render('favorites', {
       bottles: user.bottles,
-      layout: 'showcase',
+      layout: 'main',
       logged_in: true
     });
   }
@@ -95,7 +95,7 @@ router.get('/profile', withAuth, async (req, res) => {
     })
 
     const user = userData.get({ plain: true })
-    res.render('profile', { layout: 'profile', 
+    res.render('profile', { layout: 'main', 
       ...user, 
       logged_in: true,
     })
