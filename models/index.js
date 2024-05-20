@@ -40,7 +40,8 @@ User.belongsToMany(Bottle, {
 Bottle.belongsToMany(User, {
   through: FavoriteBottle,
   foreignKey: 'bottle_id',
-  onDelete: 'SET CASCADE'
+  //set this to CASECADE, removed SET
+  onDelete: 'CASCADE'
 });
 
 // Bottle.belongsTo(User, {
