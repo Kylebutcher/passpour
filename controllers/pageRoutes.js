@@ -66,6 +66,8 @@ router.get('/', async (req, res) => {
   // }  
 });
 
+// router.post('/login', async (req, res))
+
 
 router.get('/explore', async (req, res) => {
   const bottleData = await Bottle.findAll()
@@ -135,7 +137,7 @@ router.get('/accolade/:id', async (req, res) => {
 // If the user is already logged in, redirect the request to profile page route
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/profile', { isLoggedIn: req.session.logged_in });
+    res.redirect('/profile');
     return;
   }
   res.render('login');
@@ -153,7 +155,8 @@ router.get('/favorites', async (req, res) => {
 
     res.render('favorites', {
       bottles: user.bottles,
-      layout: 'showcase'
+      layout: 'showcase',
+      logged_in: req.session.logged_in
     });
     return;
   }
@@ -163,10 +166,14 @@ router.get('/favorites', async (req, res) => {
 router.get('/profile', (req, res) => {
   console.log(req.session)
   if (req.session.logged_in) {
-    res.render('profile', { layout: 'profile', isLoggedIn: req.session.logged_in });
+    res.render('profile', { layout: 'profile'});
     return;
   }
   // res.render('login');
 })
+
+// route to delete cookie session for an authorize user
+
+
 
 module.exports = router;

@@ -7,7 +7,7 @@ const socket = io();
   const messageInput = document.getElementById('messageInput');
   const sendButton = document.getElementById('sendButton');
   const apiButton = document.getElementById('apiButton');
-  const User = require('../../models/User')
+  // const User = require('../../models/User') // can not do back end js in front end
 
   // Listen for 'chat message' events and add to messages list
   socket.on('chat message', function(msg) {
