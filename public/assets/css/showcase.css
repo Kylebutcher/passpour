@@ -28,7 +28,16 @@ header{
 .showcase-h1 {
   color: var(--whiskey-orange);
   text-align: center;
+  display: flex;
+  border: 3px solid red;
+  height: 100px;
+  width: 500px;
+
 }
+
+
+
+
 
 .drink-card {
   background-color: var(--background-brown);
