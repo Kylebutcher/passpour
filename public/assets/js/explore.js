@@ -32,19 +32,22 @@ function searchApi(){
   })
 };
 
+console.log("right above the printResults fucntion")
+
 function printResults(data){
   data.forEach((bottleCard, i) => {
     printBottle(bottleCard, i);
-    console.log("Print Results Function, line 55");
+    console.log("Print Results Function, line 38");
   });
 }
 
-
+console.log("right outside of printResults function line 44", cubbies[0])
 
 
 function printBottle(bottleCard, i) {
-  
-  for (let i = 0; i < cubbies.length; i++) {
+  console.log("the print bottle function line 46")
+
+  for (let j = 0; j < cubbies.length; j++) {
     console.log(cubbies[i]);
     
     const wnameEl = document.createElement('h3');
@@ -88,11 +91,15 @@ function printBottle(bottleCard, i) {
     
     cubbies.appendChild(card)
     
-    // console.log(cubbies[0]);
+    console.log(cubbies[0]);
+    console.log("after the print bottle function line 95. ")
   }
-  printBottle("printbottle call line 88", 2);
+  // printBottle("printbottle call line 88", 2);
+  console.log("after the print bottle function line 98. just in side the function ")
+
 }
 
+console.log("after the print bottle function line 99")
 
 
 

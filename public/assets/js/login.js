@@ -40,6 +40,8 @@ async function signInHandler(e) {
 console.log(response)
   if (response.ok) {
     document.location.replace('/profile')
+  } else {
+    alert('error')
   }
 }
 
