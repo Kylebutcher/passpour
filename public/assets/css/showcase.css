@@ -8,7 +8,7 @@
 }
 
 
-body {
+.showcase-main {
   background-image: url(../../assets/img/dipslaycase-unsplash.png);
   background-attachment: scroll;
   background-size: cover;
@@ -17,44 +17,17 @@ body {
 }
 
 
-a{
-  text-decoration: none;
-  font-size: larger;
-  color: #ffffff;
-  margin: 3px;
-  border-radius: 5px;
-}
-
 header{
   padding: 30px;
   border-radius: 5px;
   border: 3px solid var(--sky-blue);
 }
 
-nav{
-  float: right;
-  display: flex;
-  flex-direction: row;
-  width: 15%;
-  justify-content: space-between;
-  padding: 5px;
-  margin: 3px;
-}
-
-#logo{
-  max-width: 20%;
-  max-height: 20%;
-}
-
-#logout {
-  position: absolute;
-  top: 80px;
-  right: 40px;
-}
 
 
-h1 {
+.showcase-h1 {
   color: var(--whiskey-orange);
+  text-align: center;
 }
 
 .drink-card {

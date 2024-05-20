@@ -40,7 +40,7 @@ a {
 }
 
 body{
-    background-image: url(../img/thomas-thompson-BoVxWyS5KAE-unsplash.jpg);
+    background-image: url(../img/celler-barrels-unsplash.jpg);
 
 }
 
@@ -99,7 +99,7 @@ button {
     position: fixed;
     bottom: 0;
     width: 100%;
-    padding: 20px;
+    padding: 15px;
     text-align: center;
     justify-content: space-between;
 }
