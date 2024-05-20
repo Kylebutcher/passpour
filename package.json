@@ -1,7 +1,7 @@
 {
   "name": "passpour",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Overview Description: Your PassPour Awaits!  Sip, Track, Explore: PassPour Your Whiskey Journey!",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -26,5 +26,7 @@
     "postgres": "^3.4.4",
     "sequelize": "^6.37.3",
     "socket.io": "^4.7.5"
-  }
+  },
+  "devDependencies": {},
+  "keywords": []
 }
