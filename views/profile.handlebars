@@ -2,27 +2,31 @@
     <div class="col-6">
         <div class="container_2">
             <h1>My Profile</h1>
-            <ul class="pours">
-                <button>Add ProfilePic</button>
-            </ul>
+                <div id="profile-pic-container">
+                 <img id="profile-pic" alt="Profile Picture">
+                <button id="delete-btn">Delete</button>
+                </div>
+            <input type="file" id="file-input" accept="image/*" style="display:none;">
+            <button id="add-pic-btn">Add Profile Pic</button>
         </div>
     </div>
 
     <div class="col-6">
         <div class="row container_3">
             <div class="col-7">
-                <h1 class="title">Bucket List:</h1>
-                <div class="diamond-container"></div>
-            </div>
-
-            
+                
             <ul class='col-5' id="header">
                 <a style='background-color: transparent' href="/assets/html/bucketList.html">
                     <button>Go To</button>
                 </a>
             </ul>
+                <h1 class="title">Bucket List:</h1>
+                <div  class="bucket-container" ></div>
+            </div>
+
         </div>
     
+
         <div class="row container_5">
             <div class="col-7">
                 <h1 class="title">The Showcase:</h1>
@@ -39,5 +43,6 @@
     </div>
 </main>
 
-
-<script type="text/javascript" src="assets/js/sockets.js"></script>
+ <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="assets/js/profile.js"></script>
+{{!-- <script type="text/javascript" src="assets/js/sockets.js"></script> --}}

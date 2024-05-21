@@ -6,13 +6,6 @@
     background-position: center;
     height: 300px;
 }
-header {
-    position: relative;
-    background-color: #451e05;
-    padding: 2px;
-    border-radius: 5px;
-}
-
 
 body {
     background-image: url(..//img/celler-barrels-unsplash.jpg);
@@ -20,14 +13,22 @@ body {
     /* background-size: cover; */
     background-position: center;
     /* height: 280vh; */
-  }
-  .explore-main{
+}
+.explore-main{
     background-image: url(../img/barrels-unsplash.jpg);
     background-attachment: scroll;
     background-size: cover;
     background-position: center;
-  }
+}
 
+/* header {
+    position: relative; 
+    background-color: #451e05;
+    padding: 10px;
+    border-radius: 5px;
+    border: 3px solid var(--sky-blue);
+
+} */
 /* a {
     text-decoration: none;
     font-size: larger;
@@ -39,7 +40,7 @@ body {
 } */
 
 
-nav{
+/* nav{
     float: right;
     display: flex;
     flex-direction: row;
@@ -47,7 +48,48 @@ nav{
     justify-content: space-between;
     padding: 5px;
     margin: 3px;
-}
+} */
+
+.nav-button {
+    color: #ffffff; font-size: 16px; 
+    line-height: 16px; 
+    padding: 6px; 
+    border-radius: 10px; 
+    font-family: Georgia, serif; 
+    font-weight: normal; 
+    text-decoration: none; 
+    font-style: normal; 
+    font-variant: normal; 
+    text-transform: none; 
+    background-image: linear-gradient(to right, #1c6ea4 0%, #2388cb 50%, #144e75 100%); 
+    border: 2px solid var(--sky-blue); 
+    display: inline-block;
+  }
+  .nav-button:hover {
+    background: var(--whiskey-orange); 
+  }
+  
+  .nav-button:active {
+    background: #144E75; 
+  }
+  
+  nav {
+    float: right;
+    display: flex;
+    flex-direction: row;
+    width: 250px;
+    justify-content: space-between;
+    padding: 5px;
+    margin: 3px;
+    margin-right: 50px;
+  }
+
+  header {
+    background-color: #451e05;
+    padding: 10px;
+    border-radius: 5px;
+    border: 3px solid var(--sky-blue);
+  }
 
 #logo {
     max-width: 20%;
@@ -55,9 +97,12 @@ nav{
 }
 
 #logout {
-    position: absolute;
+    /* position: absolute;
     top: 70px;
-    right: 40px;
+    right: 40px; */
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 .container_2 {
@@ -96,32 +141,45 @@ nav{
     border-radius: 5px;
     cursor: pointer;
 }
+/* Media Queries */
 @media screen and (max-width: 768px) {
     nav {
-      flex-direction: column;
-      align-items: end;
+      display: flex;
+      width: 100%;
+      flex-direction: row;
       justify-content: space-between;
+      padding: 0;
+      margin: 0;
     }
-    header{
-      font-size: smaller;
+  
+    /* .title-bucket {
+      text-wrap: nowrap;
+      margin-top: 50px;
+      text-align: center;
+    } */
+  
+    header {
+      justify-content: center;
     }
-    #logo{
-      min-width: 25%;
+    #logo {
+      min-width: 100%;
       min-height: 25%;
     }
-    .bucket-container{
-      max-width: 120%;
-    }
-    .container_3{
-        max-width: 120%;
-      }
-    .container_4{
-        max-width: 120%;
-      }
-    .container_5{
-        max-width: 120%;
-      }
-
+    
+    /* #postContainer {
+      justify-content: center;
+    } */
+  
+    /* #myList {
+      text-align: center;
+    } */
+  
+    /* .board {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    } */
+  
   }
 
 
@@ -198,10 +256,10 @@ button {
 }
 
 .bucket-item {
-    border: 2px solid black;
+    /* border: 2px solid black;
     padding: 10px;
     margin: 5px;
-    background-color: #fff; /* Default color if not set in JavaScript */
+    background-color: #fff; Default color if not set in JavaScript */
     flex: 1 1 200px; /* Adjusts the flex-grow, flex-shrink, and flex-basis properties */
     max-width: 200px;
     height: 100px;
@@ -224,7 +282,7 @@ footer {
 
 
 /* media queries below */
-@media screen and (max-width: 576px) {
+/* @media screen and (max-width: 576px) {
 
     header {
         height: 16vh;
@@ -238,4 +296,4 @@ footer {
 .pours button {
     background-color: blue;
 }
-}
+} */
