@@ -10,9 +10,9 @@
 }
 
 .main-explore {
-  background-image: url('../../images/barrels-unsplash.jpg');
+  background-image: url('../img/barrels-unsplash.jpg');
   background-attachment: scroll;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   height: fit-content;
   background-repeat: repeat-y;
@@ -45,9 +45,15 @@
 }
 
 
+h1 {
+  color: var(--whiskey-orange);
+  text-align: center;
+}
+
+
 
 /* Add to showcase button */
-.showcase-btn {
+.showcase-btn, .open-modal {
   color: rgb(255, 255, 255); 
   font-size: 14px; 
   line-height: 14px; 
@@ -74,7 +80,7 @@ background: #e2df0b;
 }
 
 /* This the the bottle card appended to the site */
-.drinkcard {
+.drinkcard, .col-3 {
   background-color: var(--background-brown);
   color: var(--whiskey-orange);
   height: 200px;

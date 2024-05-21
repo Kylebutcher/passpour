@@ -72,9 +72,6 @@ Below is a mock up of our application.
 The Login Page.
 ![The Login Page.](./public/assets/img/login-passpour.png)
 
-The Home / Explore Page.
-![The Home Page.](file-name)
-
 The Profile Page.
 ![The Profile Page.](./public/assets/img/profile-passpour.png)
 
@@ -151,6 +148,6 @@ The Presentation.
 ## Deployed Application:
 [Click Here](https://github.com/Kylebutcher/passpour) to view the Repository for this project.
 
-[Click Here](link-to-deployed-page) to view the deployed version of the web application. 
+[Click Here](https://passpour-1.onrender.com) to view the deployed version of the web application. 
 
 
