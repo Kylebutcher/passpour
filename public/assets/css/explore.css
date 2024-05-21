@@ -103,6 +103,11 @@ background: #e2df0b;
 }
 
 
+/* Modal pop up of the Bottle object to add details of thier entry*/
+.modal-dialog {
+  color: var(--whiskey-orange)
+}
+
 
 /* Styling for mobile version */
 @media screen and (max-width: 576px) {
