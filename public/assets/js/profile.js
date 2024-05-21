@@ -72,3 +72,5 @@ function displayPost() {
 
 // Ensure jQuery is loaded before calling the function
 $(document).ready(displayPost);
+
+
