@@ -69,31 +69,29 @@ We invite you to explore our prototype below and welcome any feedback you may ha
 
 Below is a mock up of our application.
 
-The Landing Page.
-![The Landing Page.](file-name)
+The Login Page.
+![The Login Page.](./public/assets/img/login-passpour.png)
 
-The Home Page.
+The Home / Explore Page.
 ![The Home Page.](file-name)
 
 The Profile Page.
-![The Profile Page.](file-name)
+![The Profile Page.](./public/assets/img/profile-passpour.png)
 
 The Bucket List Page.
-![The Bucket List Page.](file-name)
+![The Bucket List Page.](./public/assets/img/bucketlist-passpour.png)
 
-The Accolades Page.
-![The Accolades Page.](file-name)
 
 The Showcase Page.
-![The Showcase Page.](file-name)
+![The Showcase Page.](./public/assets/img/showcase-passpour.png)
 
 The Company Logo.
-![The Company Logo.](file-name)
+![The Company Logo.](./public/assets/img/passpourlogoSkinny.png)
 
 The Presentation.
 [Click Here](https://docs.google.com/presentation/d/1PZod7cFC514Nm8cUHe_S90AkSyS826IWOuSfVPcc48s/edit?usp=sharing) 
 
-## Our Company: ___(Band name)___.
+## Our Company: The Four Oh! Fours
 - Kyle Butcher
 - Daisy Osebe
 - Joel Simmonson
@@ -102,17 +100,36 @@ The Presentation.
 ## Acknowledgements & Technology Stacks
 - CSS
    - Custom CSS
-   - 
+   - Bootstrap
 
 <br>
 
 - JavaScript
-   - 
+   - Vanilla JS
+   - JQuery
+   - Web Socket .io (Beta)
+
 
 <br>
 
 - APIs
    - Mockaroo
+
+<br>
+
+- Node Packages
+   - bcrypt
+   - express
+   - sequelize
+   - socket.io
+   - postgres
+   - exphbs
+   - express-handlebars
+   - express-session
+   - js-cookies
+   - dot.env
+   - pg
+
 
 <br>
 
