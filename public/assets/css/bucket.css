@@ -1,5 +1,5 @@
 :root{
-  background-image: url(../../assets/img/josephine-bredehoft-KsAo8ouBn8A-unsplash.jpg);
+  background-image: url(../img/cork-board.jpg);
   font-family:Arial, Helvetica, sans-serif
 }
 
@@ -97,7 +97,6 @@ footer {
 }
 
 .post-it {
-  /* background-color: yellow; */
   color:black;
   padding: 10px;
   margin-right: 10px;
@@ -112,7 +111,6 @@ footer {
   border-bottom: 1px solid black; 
   padding-bottom: 5px; 
 }
-
 
 .delete-btn {
   background-color: #F0ba34;

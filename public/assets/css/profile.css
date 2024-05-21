@@ -15,14 +15,14 @@ header {
 
 
 body {
-    background-image: url(../../assets/img/thomas-thompson-BoVxWyS5KAE-unsplash.jpg);
+    background-image: url(..//img/celler-barrels-unsplash.jpg);
     background-attachment: scroll;
     /* background-size: cover; */
     background-position: center;
     /* height: 280vh; */
   }
   .explore-main{
-    background-image: url(../img/celler-barrels-unsplash.jpg);
+    background-image: url(../img/barrels-unsplash.jpg);
     background-attachment: scroll;
     background-size: cover;
     background-position: center;
@@ -213,23 +213,17 @@ button {
 .circle-container {
     width: 100px;
     height: 100px;
-    background-color: #D07725;
+    background-color: var(--whiskey-orange);
     border-radius: 50%;
 }
 
 footer {
-    border: 2px solid #F0ba34;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #ccc;
-    padding: 10px;
-    text-align: center;
-
+    border: 2px solid var(--whiskey-orange);
 }
 
-/* media queries below */
 
+
+/* media queries below */
 @media screen and (max-width: 576px) {
 
     header {

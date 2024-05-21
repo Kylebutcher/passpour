@@ -1,4 +1,4 @@
-{{!-- This file should be named: explore.handlebars --}}
+
 
 
 
@@ -9,12 +9,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  {{!-- Reset CSS --}}
+  <link rel="stylesheet" href="/assets/css/reset.css">
+
   {{!-- Bootstrap CSS Link Tag --}}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
 
   {{!-- Custom CSS --}}
-  {{!-- <link rel="stylesheet" href="/assets/css/homepage.css"> --}}
-  <link rel="stylesheet" href="/assets/css/explore.css">
+  <link rel="stylesheet" href="/assets/css/profile.css">
+
+
   <title>PassPour</title>
 </head>
 
@@ -22,7 +26,6 @@
   <header>
     <img src="/assets/img/passpourlogoSkinny.png" id="logo" alt="PassPour logo">
     <nav>
-      {{!-- <a href="">About</a> --}}
       <a href="/favorites">Showcase</a>
 
       <a href="">Badges</a>
@@ -31,7 +34,6 @@
     {{#if logged_in}}
     <button id="logout">logout</button>
     {{/if}}
-    {{!-- </a> --}}
   </header>
 
   {{{body}}}
@@ -40,9 +42,10 @@
 
 
   <footer class="container_6">Made by The Four Oh! Fours</footer>
-  {{!-- {{#if logged_in}}
+  
+  {{#if logged_in}}
   <script type="text/javascript" src="/js/logout.js"></script>
-  {{/if}} --}}
+  {{/if}}
 
   <script type="text/javascript" src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
   <script type="text/javascript" src="assets/js/sockets.js"></script>
