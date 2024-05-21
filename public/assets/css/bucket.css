@@ -60,9 +60,6 @@ header {
 }
 
 #logout {
-  /* position: absolute; */
-  /* top: 80px;
-  right: 40px; */
   background: none;
   border: none;
   cursor: pointer;
@@ -173,8 +170,10 @@ input, textarea {
     justify-content: center;
   }
   #logo {
-    min-width: 100%;
+    min-width: 100%; 
     min-height: 25%;
+    flex-wrap: wrap;
+    width: 100%
   }
   
   #postContainer {

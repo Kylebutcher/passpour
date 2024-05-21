@@ -6,6 +6,16 @@
   --sky-blue: #31C5FF;
   --glass-grey: #D5DBE9;
 }
+header {
+  background-color: #1a0d05;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  border-top: 3px solid red;
+  border-left: 3px solid red;
+  border-right: 3px solid red;
+}
 
 
 .showcase-main {
@@ -17,21 +27,71 @@
 }
 
 
-header{
-  padding: 30px;
-  border-radius: 5px;
-  border: 3px solid red;
+
+/* Nav buttons with gradiant */
+.nav-button {
+  color: #ffffff; font-size: 16px; 
+  line-height: 16px; 
+  padding: 6px; 
+  border-radius: 10px; 
+  font-family: Georgia, serif; 
+  font-weight: normal; 
+  text-decoration: none; 
+  font-style: normal; 
+  font-variant: normal; 
+  text-transform: none; 
+  background-image: linear-gradient(to right, #b12727 0%, #ec3d3d 50%, #b12727 100%); 
+  border: 2px solid #ec3d3d;
+  display: inline-block;
+  height: 30px;
+  margin: 20px;
+}
+
+.nav-button:hover {
+  background: var(--whiskey-orange); 
+}
+
+.nav-button:active {
+  background: #b12727; 
+}
+
+nav {
+  float: right;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  padding: 5px;
+  margin: 3px;
+  margin-right: 50px;
+  align-items: flex-start;
 }
 
 
 
+#logo {
+  max-width: 20%;
+  max-height: 20%;
+  border-radius: 25px;
+}
+
+#logout {
+  border: none;
+  background: none;
+}
+
+
 .showcase-h1 {
+  background-color: #1a0d05;
   color: var(--whiskey-orange);
   text-align: center;
-  display: flex;
-  border: 3px solid red;
+  border-bottom: 3px solid red;
+  border-left: 3px solid red;
+  border-right: 3px solid red;
   height: 100px;
-  width: 500px;
+  width: 100%;
+  padding-top: 20px;
+
 }
 
 
@@ -51,16 +111,53 @@ header{
 }
 
 
-
-
 .footer-showcase {
   color: #ffffff;
-  background-color: var(--sky-blue);
-  height: 20px;
-  position: fixed;
+  background-color: #ec3d3d;
+  height: 60px;
+
   bottom: 0;
   width: 100%;
   padding: 15px;
   text-align: center;
   justify-content: space-between;
+}
+
+
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  nav {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    
+  }
+
+  .showcase-h1 {
+    text-wrap: nowrap;
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  header {
+    justify-content: center;
+  }
+  #logo {
+    min-width: 100%;
+    min-height: 25%;
+  }
+  
+
+ 
+  .footer-showcase {
+    color: #ffffff;
+    background-color: #ec3d3d;
+    height: 60px;
+    width: 100%;
+    text-align: center;
+  }
+
+
 }
