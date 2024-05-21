@@ -14,18 +14,22 @@
 <header>
   <img src="../../assets/img/passpourlogoSkinny.png" id="logo" alt="PassPour logo">
   <nav>
-    <a href="/profile">Profile</a>
-    <a href="/showcase">Showcase</a>
-    <a href="/logout">
-      <button id="logout" >logout</button>
-    </a>
+    <a class="nav-button" href="/profile">Profile</a>
+    <a class="nav-button" href="/">Explore</a>
+    <a class="nav-button" href="/showcase">Showcase</a>
+    
+    <button id="logout">
+      <a class="nav-button">Logout</a>
+    </button>
+
   </nav>
-  <h1>The Bucket List</h1>
+  
+  <h1 class="title-bucket">The Bucket List</h1>
 </header>
 
 <body class="board">
   <form id="bucketForm">
-    <h1>What would you like to try?</h1>
+    <h1>What would you like note down?</h1>
     <input type="text" placeholder="Bottle name" id="bottleName" required>
     <textarea placeholder="Bottle description" id="bottleDesc" required></textarea>
     <button type="submit" id="submit">Send it!</button>
@@ -35,10 +39,11 @@
   <div id="postContainer"></div>
 </body>
 
-<footer>
-  <h4>Created by The Four Oh! Fours</h4>
-</footer>
 
+
+<footer class="footer-bucket">Made by The Four Oh! Fours</footer>
+
+<!-- Custom Script -->
 <script src="../js/bucket.js"></script>
 <script src="../js/logout.js"></script>
 

@@ -20,7 +20,7 @@
 header{
   padding: 30px;
   border-radius: 5px;
-  border: 3px solid var(--sky-blue);
+  border: 3px solid red;
 }
 
 
@@ -32,12 +32,11 @@ header{
   border: 3px solid red;
   height: 100px;
   width: 500px;
-
 }
 
 
 
-
+/* These are the drink cards that are being sent from the modal off of the Explore / Homepage to this page to be added to FavoriteBottle of the User.  */
 
 .drink-card {
   background-color: var(--background-brown);
@@ -51,7 +50,17 @@ header{
   align-items: center;
 }
 
-/* Modal pop up of the Bottle object to add details of thier entry*/
-.modal-dialog {
-  color: var(--whiskey-orange)
+
+
+
+.footer-showcase {
+  color: #ffffff;
+  background-color: var(--sky-blue);
+  height: 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  text-align: center;
+  justify-content: space-between;
 }
