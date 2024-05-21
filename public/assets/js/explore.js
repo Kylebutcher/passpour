@@ -115,16 +115,19 @@
 //   $(closeMdl).modal('toggle');
 // })
 
-const addNotes = document.querySelector('.add-notes');
-const dontAddNotes = document.querySelector('.add-as-is');
+const addNotes = document.querySelector('#add-notes');
+const dontAddNotes = document.querySelector("#add-as-is");
 // const bottleName = document.querySelectorAll('h2')
-const showcase = document.querySelectorAll('.showcase');
+const showcase = document.querySelector('.showcase');
 let bottle_id; 
 
-for (let i = 0; i < showcase.length; i++) {
-  showcase[i].addEventListener('click', function (e) {
-    bottle_id = e.target.getAttribute('id')
-    console.log('This is the bottle id', bottle_id)
+
+  showcase.addEventListener('click', function (e) {
+    if (e.target.matches('.open-modal')) {
+      bottle_id = e.target.getAttribute('id')
+      console.log('This is the bottle id', bottle_id)
+    }
+
 
     // return bottle_id;
 
@@ -139,7 +142,6 @@ for (let i = 0; i < showcase.length; i++) {
     //   })
     // };
   })
-}
 
 // function noNotes (bottle_id) {
   // console.log("This is being called in line 131 in showcase for-loop", bottle_id)
@@ -148,6 +150,8 @@ for (let i = 0; i < showcase.length; i++) {
 
 
 dontAddNotes.addEventListener('click', async function(e) {
+  e.preventDefault();
+
   const response = await fetch('/api/showcase', {
   method: 'POST',
   body: JSON.stringify({ bottle_id }),
@@ -159,6 +163,7 @@ dontAddNotes.addEventListener('click', async function(e) {
   if (response.ok) {
     document.querySelector(".confirmation").textContent = "Thank you, your bottle has been added to your Showcase!"
   } else {
+    console.log(document.querySelector(".confirmation"))
     document.querySelector(".confirmation").textContent = "Sorry there was an error, please try again in a few minutes."
   }
 
@@ -170,8 +175,8 @@ addNotes.addEventListener('click', async function(e) {
   e.preventDefault();
 
   const order = document.querySelector(".order-form");
-  const value = order.value;
-  const text = order.options[order.selectedIndex].text;
+  // const value = order.value;
+  const text = order.options[order.selectedIndex].textContent;
   const taste = document.getElementById('tasteNotes').value;
 
   // console.log('text from the order selector', text);

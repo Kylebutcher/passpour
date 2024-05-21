@@ -10,9 +10,9 @@
 }
 
 .main-explore {
-  background-image: url('../../images/barrels-unsplash.jpg');
+  background-image: url('../img/barrels-unsplash.jpg');
   background-attachment: scroll;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   height: fit-content;
   background-repeat: repeat-y;
@@ -31,7 +31,7 @@
 
 /* This is the wood backround that displays the title of the page: "Explore & Find New Whiskies!" */
 .woodbox-title-container {
-  background-image: url('../../images/wood-sign-unsplash.jpg');
+  background-image: url('../img/wood-sign-unsplash.jpg');
   color: var(--whiskey-orange);
   text-align: center;
   text-decoration-color: black;
@@ -45,17 +45,15 @@
 }
 
 
-
-
-
-
-
-
+h1 {
+  color: var(--whiskey-orange);
+  text-align: center;
+}
 
 
 
 /* Add to showcase button */
-.showcase-btn {
+.showcase-btn, .open-modal {
   color: rgb(255, 255, 255); 
   font-size: 14px; 
   line-height: 14px; 
@@ -82,7 +80,7 @@ background: #e2df0b;
 }
 
 /* This the the bottle card appended to the site */
-.drinkCard {
+.drinkcard, .col-3 {
   background-color: var(--background-brown);
   color: var(--whiskey-orange);
   height: 200px;
@@ -112,6 +110,20 @@ background: #e2df0b;
 .modal-dialog {
   color: var(--whiskey-orange)
 }
+
+
+.footer-main {
+  color: #ffffff;
+  background-color: var(--sky-blue);
+  height: 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  text-align: center;
+  justify-content: space-between;
+}
+
 
 /* Styling for mobile version */
 @media screen and (max-width: 576px) {
