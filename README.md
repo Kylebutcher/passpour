@@ -93,7 +93,7 @@ The Company Logo.
 The Presentation.
 [Click Here](https://docs.google.com/presentation/d/1PZod7cFC514Nm8cUHe_S90AkSyS826IWOuSfVPcc48s/edit?usp=sharing) 
 
-## Our Company: ___(Band name)___.
+## Our Company: The Four Oh! Fours
 - Kyle Butcher
 - Daisy Osebe
 - Joel Simmonson
