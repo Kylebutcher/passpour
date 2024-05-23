@@ -2,12 +2,12 @@ const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { User, Bottle } = require('../../models');
 
-const userData = require("../../db/seeds/user-data.json")
+const bottleData = require("../../db/seeds/bottle-data.json")
 
 router.post("/", async (req, res) => {
 
   // Tyler and I tried this adjustment to line 10-19, added then/catch block, and some syntax was adjusted. Pleaes take a look at the file: models>index.js on line 40 there was a left over SET and we placed only CASCADE. 
-  await User.destroy({
+  await Bottle.destroy({
     truncate: true,
     cascade: true
   })
@@ -18,19 +18,19 @@ router.post("/", async (req, res) => {
     console.error('Error truncating table:', error);
   });
 
-  const usersUpdate = userData.map(user => {
-    const { id, ...update } = user
+  const bottlesUpdate = bottleData.map(bottle => {
+    const { id, ...update } = bottle
     return update
   })
 
-  const usersArray = await User.bulkCreate(usersUpdate, {
+  const bottlesArray = await Bottle.bulkCreate(bottlesUpdate, {
     individualHooks: true,
     returning: true,
   });
-  const users = usersArray.map(user => user.get({plain:true})) 
+  const bottles = bottlesArray.map(bottle => bottle.get({plain:true})) 
 
 
-  res.json({ status: "ok", payload: users })
+  res.json({ status: "ok", payload: bottles })
 
 })
 
